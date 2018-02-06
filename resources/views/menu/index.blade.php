@@ -25,8 +25,34 @@
   {!! Html::style('plugins/jQuery-contextMenu-master/dist/jquery.contextMenu.css') !!}
   {!! Html::style('css/login/login.css') !!}
   <!-- JS -->
-
-  {{ HTML::script('js/core/core.js') }}
+  {{ HTML::script('theme/bower_components/jquery/js/jquery.js') }}
+  {{ HTML::script('theme/bower_components/jquery-ui/js/jquery-ui.js') }}
+  {{ HTML::script('theme/bower_components/popper.js/js/popper.js') }}
+  {{ HTML::script('theme/bower_components/bootstrap/js/bootstrap.js') }}
+  {{ HTML::script('theme/assets/plugins/waves/js/waves.js') }}
+  {{ HTML::script('theme/bower_components/jquery-slimscroll/js/jquery.slimscroll.js') }}
+  {{ HTML::script('theme/assets/plugins/jquery.nicescroll/js/jquery.nicescroll.js') }}
+  {{ HTML::script('theme/bower_components/classie/js/classie.js') }}
+  {{ HTML::script('theme/assets/plugins/notification/js/bootstrap-growl.js') }}
+  {{ HTML::script('theme/assets/pages/contact-detail.js') }}
+  {{ HTML::script('theme/assets/js/main.js') }}
+  {{ HTML::script('theme/assets/pages/elements.js') }}
+  {{ HTML::script('theme/assets/js/menu-horizontal.js') }}
+  {{ HTML::script('plugins/validator/formValidation.js') }}
+  {{ HTML::script('plugins/validator/fvbootstrap.js') }}
+  {{ HTML::script('plugins/validator/es_ES.js') }}
+  {{ HTML::script('theme/bower_components/select2/js/select2.full.js') }}
+  {{ HTML::script('theme/bower_components/datatables.net/js/jquery.dataTables.js') }}
+  {{ HTML::script('theme/bower_components/datatables.net-bs4/js/dataTables.bootstrap4.js') }}
+  {{ HTML::script('theme/bower_components/datatables.net-buttons/js/dataTables.buttons.js') }}
+  {{ HTML::script('theme/bower_components/datatables.net-responsive/js/dataTables.responsive.js') }}
+  {{ HTML::script('theme/bower_components/datatables.net-responsive-bs4/js/responsive.bootstrap4.js') }}
+  {{ HTML::script('theme/assets/plugins/data-table/js/jszip.js') }}
+  {{ HTML::script('theme/assets/plugins/data-table/js/pdfmake.js') }}
+  {{ HTML::script('theme/assets/plugins/data-table/js/vfs_fonts.js') }}
+  {{ HTML::script('theme/bower_components/datatables.net-buttons/js/buttons.print.js') }}
+  {{ HTML::script('theme/bower_components/datatables.net-buttons/js/buttons.html5.js') }}
+  {{ HTML::script('plugins/jQuery-contextMenu-master/dist/jquery.contextMenu.js') }}
   {{ HTML::script('js/utils/utils.js') }}
   {{ HTML::script('js/index/index.js') }}
 </head>

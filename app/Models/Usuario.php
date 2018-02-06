@@ -102,19 +102,19 @@ class Usuario extends Authenticatable
     public function listUsuario(){
         $p = Session::get('perfiles');
         $idperfil = $p['idPerfil'];
-        switch ($idperfil) {
-            case 1:
-                $result = DB::table('v_usuarios')->get();
-                break;
-            case 2:
-                $result = DB::table('v_clientes_tienen_usuarios')
-                ->where('IdCliente',$p['v_detalle'][0]->IdCliente)->get();
-                break;
-            case 3:
-                $result = DB::table('v_proveedores_tienen_usuarios')
-                ->where('IdProveedor',$p['v_detalle'][0]->IdProveedor)->get();
-                break;
-        }
+        $result = DB::table('v_usuarios')->get();
+        // switch ($idperfil) {
+        //     case 1:
+        //         break;
+        //     case 2:
+        //         $result = DB::table('v_clientes_tienen_usuarios')
+        //         ->where('IdCliente',$p['v_detalle'][0]->IdCliente)->get();
+        //         break;
+        //     case 3:
+        //         $result = DB::table('v_proveedores_tienen_usuarios')
+        //         ->where('IdProveedor',$p['v_detalle'][0]->IdProveedor)->get();
+        //         break;
+        // }
         return $result;
     }
 
