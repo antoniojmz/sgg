@@ -173,82 +173,53 @@ var cargarTablaUsuarios = function(data){
 };
 
 var seleccionarTablaUsuarios = function(data){
+    console.log("Entre a cargar");
     var tableB = $('#tablaUsuarios').dataTable();
     $('#tablaUsuarios tbody').on('click', 'tr', function (e) {
-        tableB.$('tr.selected').removeClass('selected');
-        $(this).addClass('selected');
+        $(this).toggleClass('selected');
+        // tableB.$('tr.selected').removeClass('selected');
+        // $(this).addClass('selected');
         RegistroUsuario = TablaTraerCampo('tablaUsuarios',this);
+        console.log(RegistroUsuario);
     });
     tableB.on('dblclick', 'tr', function () {
         $('#close').trigger('click');
     });
-    if (d.v_perfil.perfil==1){
-        $(function(){
-            $.contextMenu({
-                selector: '#tablaUsuarios',
-                // selector: '.dataTable tbody tr',
-                callback: function(key, options) {
-                    switch(key) {
-                        case "1":
-                            cargarFormulario();
-                            pintarDatosActualizar(RegistroUsuario);
-                            break;
-                        case "2":
-                            reiniciarClave();
+    $(function(){
+        console.log("pase por aqui");
+        $.contextMenu({
+            selector: '#tablaUsuarios',
+            // selector: '.dataTable tbody tr',
+            callback: function(key, options) {
+                switch(key) {
+                    case "1":
+                        cargarFormulario();
+                        pintarDatosActualizar(RegistroUsuario);
                         break;
-                        case "3":
-                            cambiarEstatusUsuario(RegistroUsuario);
-                        break;
-                        case "4":
-                            administrarPerfiles(RegistroUsuario);
-                        break;
-                        case "5":
-                            desbloquearCuenta(RegistroUsuario);
-                        break;
-                    }
-                },
-                items: {
-                    "1": {name: "Editar", icon: "fa-pencil-square-o"},
-                    "2": {name: "Reiniciar clave", icon: "fa-refresh"},
-                    "3": {name: "Activar / Desactivar", icon: "fa-toggle-on"},
-                    "4": {name: "Administrar perfiles", icon: "fa-cubes"},
-                    "5": {name: "Desbloquear cuenta", icon: "fa-user"}
+                    case "2":
+                        reiniciarClave();
+                    break;
+                    case "3":
+                        cambiarEstatusUsuario(RegistroUsuario);
+                    break;
+                    case "4":
+                        administrarPerfiles(RegistroUsuario);
+                    break;
+                    case "5":
+                        desbloquearCuenta(RegistroUsuario);
+                    break;
                 }
-            });
+            },
+            items: {
+                "1": {name: "Editar", icon: "fa-pencil-square-o"},
+                "2": {name: "Reiniciar clave", icon: "fa-refresh"},
+                "3": {name: "Activar / Desactivar", icon: "fa-toggle-on"},
+                "4": {name: "Administrar perfiles", icon: "fa-cubes"},
+                "5": {name: "Desbloquear cuenta", icon: "fa-user"}
+            }
         });
-    }
-    if (d.v_perfil.perfil==2){
-        $(function(){
-            $.contextMenu({
-                selector: '#tablaUsuarios',
-                // selector: '.dataTable tbody tr',
-                callback: function(key, options) {
-                    switch(key) {
-                        case "1":
-                            cargarFormulario();
-                            pintarDatosActualizar(RegistroUsuario);
-                            break;
-                        case "2":
-                            reiniciarClave();
-                        break;
-                        case "3":
-                            cambiarEstatusUsuario(RegistroUsuario);
-                        break;
-                        case "4":
-                            desbloquearCuenta(RegistroUsuario);
-                        break;
-                    }
-                },
-                items: {
-                    "1": {name: "Editar", icon: "fa-pencil-square-o"},
-                    "2": {name: "Reiniciar clave", icon: "fa-refresh"},
-                    "3": {name: "Activar / Desactivar", icon: "fa-toggle-on"},
-                    "4": {name: "Desbloquear cuenta", icon: "fa-user"}
-
-                }
-            });
-        });
-    }
+    });
+  
 }
 
 var cargarTablaPerfiles = function(data){

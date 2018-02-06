@@ -24,7 +24,7 @@
 						<br />
 						<div class="row">
 							<div class="col-md-12 table-responsive">
-								<table id="tablaUsuarios" class="display table" cellspacing="0" width="100%"></table>
+								<table id="tablaUsuarios" class="table compact table-striped dt-responsive nowrap table-hover" cellspacing="0" width="100%"></table>
 							</div>
 						</div>
 					</div>

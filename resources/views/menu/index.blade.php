@@ -10,7 +10,11 @@
   <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  {!! Html::style('theme/assets/icon/icofont/css/icofont.css') !!}
+
+
+  <link href="https://cdn.datatables.net/select/1.2.5/css/select.bootstrap4.css" rel="stylesheet">
+
+  
   {!! Html::style('theme/assets/icon/icofont/css/icofont.css') !!}
   {!! Html::style('theme/assets/icon/simple-line-icons/css/simple-line-icons.css') !!}
   {!! Html::style('theme/bower_components/bootstrap/css/bootstrap.min.css') !!}
@@ -55,6 +59,7 @@
   {{ HTML::script('plugins/jQuery-contextMenu-master/dist/jquery.contextMenu.js') }}
   {{ HTML::script('js/utils/utils.js') }}
   {{ HTML::script('js/index/index.js') }}
+  <script type="text/javascript" src="https://cdn.datatables.net/select/1.2.5/js/dataTables.select.min.js"></script>
 </head>
 <body class="horizontal-fixed fixed">
   <form id="formLogout" method="POST" style="display: none;">

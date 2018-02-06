@@ -428,7 +428,7 @@
         <!-- <li class="nav-level">Adminstración</li> -->
         <li class="treeview">
           <a href="#">
-            <i class="icofont icofont-company"></i><span>Adminstración</span><i class="icon-arrow-down"></i>
+            <i class="icofont icofont-company"></i><span>Adminstración </span><i class="icon-arrow-down"></i>
           </a>
           <ul class="treeview-menu">
             <li><a href="{{ route('usuarios') }}"><i class="icon-arrow-right"></i>Usuarios</a></li>
