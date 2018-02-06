@@ -151,7 +151,7 @@ class UsuarioController extends Controller
             $r1=Storage::disk('imgUsuarios')->put($nuevo_nombre,  \File::get($archivo) );
             $rutadelaimagen="/imgUsuarios/".$nuevo_nombre;
             if ($r1){
-                sleep(5); 
+                sleep(3); 
                 $model= new Usuario();
                 $result= $model->actualizarFoto($idUser,$rutadelaimagen);
                 return '{"code":"200","des_code":"'.$rutadelaimagen.'"}';

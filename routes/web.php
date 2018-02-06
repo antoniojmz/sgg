@@ -19,7 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
 Route::group(['namespace' => 'Auth', 'prefix' => 'admin'], function (){
 	//accesos (Seleccionar acceso para ingresar a la aplicacion)
 	Route::get('/accesos', 'UsuarioController@getAccesos')->name('accesos');

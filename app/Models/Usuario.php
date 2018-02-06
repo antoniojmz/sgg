@@ -162,8 +162,7 @@ class Usuario extends Authenticatable
         $datos['idUser']==null ? $idUser=0 : $idUser= $datos['idUser'];
         $pass = substr($datos['usrUserName'], 0,6);
         $usrPassword=bcrypt($pass);
-        $pusrPassInit=md5($pass);  
-        $sql="select f_registro_usuario(".$idUser.",'".$datos['usrUserName']."','".$usrPassword."','".$datos['usrNombreFull']."','".$pusrPassInit."',".$datos['usrEstado'].",".$idAdmin.",'".$datos['_token']."','".$datos['usrEmail']."',".$datos['idEmpresa'].",".$p['idClienteUsuario'].",".$datos['caso'].")";
+        $sql="select f_registro_usuario(".$idUser.",'".$datos['usrUserName']."','".$usrPassword."','".$datos['usrNombreFull']."',".$datos['usrEstado'].",".$idAdmin.",'".$datos['_token']."','".$datos['usrEmail']."')";
         $execute=DB::select($sql);
         foreach ($execute[0] as $key => $value) {
             $result['f_registro_usuario']=$value;

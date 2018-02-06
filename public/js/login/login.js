@@ -9,7 +9,8 @@ var parametroAjax = {
 var ManejoRespuestaLogin = function(res){
     if (res.code==200){
         if (res.respuesta.code==200){
-            window.location.href = res.respuesta.des_code;       
+            // window.location.href = res.respuesta.des_code; 
+            window.location.replace(res.respuesta.des_code);    
             $('#FormLogin')[0].reset();
         }else{
             $.growl({message:res.respuesta.des_code},{type: "warning", allow_dismiss: true,});

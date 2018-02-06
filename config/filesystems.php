@@ -62,6 +62,10 @@ return [
             'region' => env('AWS_DEFAULT_REGION'),
             'bucket' => env('AWS_BUCKET'),
         ],
+        'imgUsuarios' => [
+            'driver' => 'local',
+            'root'   => storage_path('../public/imgUsuarios'),
+        ],
 
     ],
 

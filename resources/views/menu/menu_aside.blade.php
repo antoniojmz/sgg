@@ -1,7 +1,7 @@
 <aside class="main-sidebar hidden-print ">
   <section class="sidebar" id="sidebar-scroll">
     <div class="user-panel">
-      <div class="f-left image"><img src="assets/images/avatar-1.png" alt="User Image" class="rounded-circle">
+      <div class="f-left image"><img src="{{ asset('theme/assets/images/avatar-1.png') }}" alt="User Image" class="rounded-circle">
       </div>
       <div class="f-left info">
         <p>John Doe</p>

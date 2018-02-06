@@ -22,13 +22,13 @@ var ManejoRespuestaDesbloquearcuenta = function(respuesta){
     if(respuesta.code==200){
         var res = JSON.parse(respuesta.respuesta.v_desbloqueo);
         if(res.code==200){
-            toastr.success('Cuenta desbloqueada con exito.', "Procesado!");
+            $.growl({message:"Procesado"},{type: "success", allow_dismiss: true,});    
             cargarTablaUsuarios(respuesta.respuesta.v_usuarios);
         }else{
-            toastr.warning("Ocurrio un error al tratar de desbloquear la cuenta.", "Info!");
+            $.growl({message:"Ocurrio un error al tratar de desbloquear la cuenta."},{type: "warning", allow_dismiss: true,});
         }
     }else{
-        toastr.error("Contacte al personal informatico", "Error!");
+        $.growl({message:"Contacte al personal informatico"},{type: "danger", allow_dismiss: true,});
     }
 }
 
@@ -37,7 +37,7 @@ var ManejoRespuestaProcesarP = function(respuesta){
     if(respuesta.code==200){
         cargarTablaPerfiles(respuesta.respuesta.v_perfiles);
     }else{
-        toastr.error("Contacte al personal informatico", "Error!");
+        $.growl({message:"Contacte al personal informatico"},{type: "danger", allow_dismiss: true,});
     }
 }
 
@@ -46,14 +46,14 @@ var ManejoRespuestaProcesarI = function(respuesta){
     if(respuesta.code==200){
         if(respuesta.respuesta.activar>0){
             if(respuesta.respuesta.v_usuarios.length>0){
-                toastr.success('Proceso con exito.', "Procesado!");
+                $.growl({message:"Procesado"},{type: "success", allow_dismiss: true,});
                 cargarTablaUsuarios(respuesta.respuesta.v_usuarios);
             }
         }else{
-            toastr.warning("Debe seleccionar un registro", "Info!");
+            $.growl({message:"Debe seleccionar un registro"},{type: "warning", allow_dismiss: true,});
         }
     }else{
-        toastr.error("Contacte al personal informatico", "Error!");
+        $.growl({message:"Contacte al personal informatico"},{type: "danger", allow_dismiss: true,});
     }
 }
 
@@ -63,16 +63,16 @@ var ManejoRespuestaProcesarR = function(respuesta){
         var res = respuesta.respuesta;
         switch(res.code) {
             case '200':
-                toastr.success(res.des_code, "Procesado!");
+                $.growl({message:res.des_code},{type: "success", allow_dismiss: true,});
                 break;
             case '500':
-                toastr.error(res.des_code, "Error!");
+                $.growl({message:res.des_code},{type: "warning", allow_dismiss: true,});
                 break;
             default:
-                toastr.error("Comuniquese con el personal de sopore técnico", "Error!");
+                $.growl({message:"Contacte al personal informatico"},{type: "danger", allow_dismiss: true,});
         } 
     }else{
-        toastr.error("Contacte al personal informatico", "Error!");
+        $.growl({message:"Contacte al personal informatico"},{type: "danger", allow_dismiss: true,});
     }
 }
 
@@ -82,20 +82,20 @@ var ManejoRespuestaProcesar = function(respuesta){
         var res = JSON.parse(respuesta.respuesta.f_registro.f_registro_usuario);
         switch(res.code) {
             case '200':
-                toastr.success(res.des_code, "Procesado!");
+                $.growl({message:res.des_code},{type: "success", allow_dismiss: true,});
                 cargarTablaUsuarios(respuesta.respuesta.v_usuarios);
                 $(".divForm").toggle();
                 $('#FormUsuario')[0].reset();
                 break;
             case '-2':
-                toastr.warning(res.des_code, "Error!");
+                $.growl({message:res.des_code},{type: "warning", allow_dismiss: true,});
                 break;
             default:
-                toastr.error("Comuniquese con el personal de sopore técnico", "Error!");
+                $.growl({message:"Contacte al personal informatico"},{type: "danger", allow_dismiss: true,});
                 break;
         } 
     }else{
-        toastr.error("Comuniquese con el personal de sopore técnico", "Error!");
+        $.growl({message:"Contacte al personal informatico"},{type: "danger", allow_dismiss: true,});
     }
 };
 
@@ -105,20 +105,20 @@ var ManejoRespuestaProcesarPerfil = function(respuesta){
         var res = JSON.parse(respuesta.respuesta.f_registro_perfil);
         switch(res.code) {
             case '200':
-                toastr.success(res.des_code, "Procesado!");
+                $.growl({message:res.des_code},{type: "success", allow_dismiss: true,});
                 $(".comboclear").val('').trigger("change");  
                 cargarTablaPerfiles(respuesta.respuesta.v_perfiles);
                 manejoRefresh=1;
                 break;
             case '-2':
-                toastr.warning(res.des_code, "Error!");
+                $.growl({message:res.des_code},{type: "warning", allow_dismiss: true,});
                 break;
             default:
-                toastr.error("Comuniquese con el personal de sopore técnico", "Error!");
+                $.growl({message:"Contacte al personal informatico"},{type: "danger", allow_dismiss: true,});
                 break;
         } 
     }else{
-        toastr.error("Comuniquese con el personal de sopore técnico", "Error!");
+        $.growl({message:"Contacte al personal informatico"},{type: "danger", allow_dismiss: true,});
     }
 };
 
@@ -173,20 +173,16 @@ var cargarTablaUsuarios = function(data){
 };
 
 var seleccionarTablaUsuarios = function(data){
-    console.log("Entre a cargar");
     var tableB = $('#tablaUsuarios').dataTable();
     $('#tablaUsuarios tbody').on('click', 'tr', function (e) {
-        $(this).toggleClass('selected');
-        // tableB.$('tr.selected').removeClass('selected');
-        // $(this).addClass('selected');
+        tableB.$('tr.selected').removeClass('selected');
+        $(this).addClass('selected');
         RegistroUsuario = TablaTraerCampo('tablaUsuarios',this);
-        console.log(RegistroUsuario);
     });
     tableB.on('dblclick', 'tr', function () {
         $('#close').trigger('click');
     });
     $(function(){
-        console.log("pase por aqui");
         $.contextMenu({
             selector: '#tablaUsuarios',
             // selector: '.dataTable tbody tr',
@@ -224,7 +220,6 @@ var seleccionarTablaUsuarios = function(data){
 
 var cargarTablaPerfiles = function(data){
     if(limpiarPerfiles==1){destruirTabla('#tablaPerfiles');}
-        $("#spanAlert").text("");
         $("#divTablaPerfiles").show();
         $("#tablaPerfiles").dataTable({ 
             "aLengthMenu": DataTableLengthMenu,
@@ -232,9 +227,6 @@ var cargarTablaPerfiles = function(data){
             "scrollCollapse": false,
             "paging": false,
             "searching": false,
-            "language": {
-                "info": "Seleccione un perfíl con doble click..."
-            },
             "columnDefs": [
             {
                 "targets": [ 1 ],
@@ -251,12 +243,7 @@ var cargarTablaPerfiles = function(data){
             ],
         });
         limpiarPerfiles=1;
-    if (data.length>0){
-        seleccionarTablaPerfiles();
-    }else{
-        $("#spanAlert").text("Este usuario no tiene periles asociados");
-       $("#divTablaPerfiles").hide();  
-    }   
+    if (data.length>0){seleccionarTablaPerfiles();}   
 };
 
 var seleccionarTablaPerfiles = function(data){
@@ -421,7 +408,7 @@ var cambiarEstatusUsuario = function(data){
 
 var desbloquearCuenta = function(data){
     if(data.EstadoBloqueo==1){
-        toastr.warning("Esta cuenta de usuario no se encuentra bloqueada", "Aviso!");
+        $.growl({message:"Esta cuenta de usuario no se encuentra bloqueada"},{type: "warning", allow_dismiss: true,});
         return 0;
     }else{
         parametroAjax.ruta=rutaDC;

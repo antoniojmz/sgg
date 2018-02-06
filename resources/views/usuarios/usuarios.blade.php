@@ -13,18 +13,15 @@
 			        <div class="divPerfiles">	
 						<div class="row">
 							<div class="col-md-12">
-								<button style="float:right;" name="agregar" id="agregar" class="btn m-btn--pill btn-primary" type="button">
-									<span>
-										<i class="la la-plus"></i>
-										<span>Agregar</span>
-									</span>
-						        </button>
+								<button style="float:right;" name="agregar" id="agregar" type="button" class="btn btn-primary waves-effect waves-light">
+									<span>Agregar</span>
+                    			</button>
 							</div>
 						</div>
 						<br />
 						<div class="row">
 							<div class="col-md-12 table-responsive">
-								<table id="tablaUsuarios" class="table compact table-striped dt-responsive nowrap table-hover" cellspacing="0" width="100%"></table>
+								<table id="tablaUsuarios" class="table table-striped dt-responsive nowrap table-hover" cellspacing="0" width="100%"></table>
 							</div>
 						</div>
 					</div>
@@ -32,12 +29,9 @@
 						<br>
 						<div class="row">
 							<div class="col-md-12">
-								<button style="float:right;" id="volverPerfiles" class="btn m-btn--pill btn-primary" type="button">
-									<span>
-										<i class="la la-arrow-left"></i>
-										<span>Volver</span>
-									</span>
-						        </button>
+						        <button style="float:right;" id="volverPerfiles" type="button" class="btn btn-inverse-primary waves-effect waves-light">
+									Volver
+								</button>
 							</div>
 						</div>
 						<div class="row">
@@ -55,17 +49,14 @@
 									</div>
 									
 									<div class="col-md-3">
-										<button name="agregarP" id="agregarP" class="btn m-btn--pill btn-primary" type="button">
-											<span>
-												<i class="la la-plus"></i>
-												<span>Agregar</span>
-											</span>
-								        </button>
+			                			<button name="agregarP" id="agregarP" type="button" class="btn btn-primary waves-effect waves-light">
+											Agregar
+			                			</button>
 									</div>
 									<div class="col-md-1"></div>
 								</div>
 								<div class="table-responsive" id="divTablaPerfiles" style="display:none;">
-									<table id="tablaPerfiles" class="display compact" cellspacing="0" width="100%">	</table>
+									<table id="tablaPerfiles" class="table compact table-striped dt-responsive nowrap table-hover" cellspacing="0" width="100%"></table>
 								</div>
 							</div>
 							<div class="col-md-2"></div>
@@ -82,7 +73,7 @@
 					<div class="row">
 						<div class="col-md-4"></div>
 						<div class="col-md-4">
-							<label class="label" for="usrUserName"><b>Login:</b></label>
+							<label for="usrUserName">Login:</label>
 							{!! Form::text('usrUserName', '', [
 							'id'            => 'usrUserName',
 							'class'         => 'form-control',
@@ -97,7 +88,7 @@
 					<div class="row">
 						<div class="col-md-4"></div>
 						<div class="col-md-4">
-							<label class="label" for="usrNombreFull"><b>Nombres:</b></label>
+							<label for="usrNombreFull">Nombres:</label>
 							{!! Form::text('usrNombreFull', '', [
 							'id'            => 'usrNombreFull',
 							'class'         => 'form-control',
@@ -111,7 +102,7 @@
 					<div class="row">
 						<div class="col-md-4"></div>
 						<div class="col-md-4 form-group">
-							<label class="label" for="usrEmail"><b>Email:</b></label>
+							<label for="usrEmail">Email:</label>
 							{!! Form::text('usrEmail', '', [
 							'id'            => 'usrEmail',
 							'class'         => 'form-control',
@@ -124,7 +115,7 @@
 					<br>
 						<div class="col-md-4"></div>
 						<div class="col-md-4">
-							<label class="label" id="labelPerfil" for="perfiles"><b>Perfiles:</b></label>
+							<label id="labelPerfil" for="perfiles">Perfiles:</label>
 							<span id="perfiles" class="form-control"></span>
 						</div>
 						<div class="col-md-4"></div>
@@ -146,7 +137,7 @@
 						<div class="row">
 							<div class="col-md-4"></div>
 							<div class="col-md-4">
-								<label class="label" for="usrUltimaVisita"><b>Última visita:</b></label>
+								<label for="usrUltimaVisita">Última visita:</label>
 								<span id="usrUltimaVisita" class="form-control">Desconocido</span>
 							</div>
 							<div class="col-md-4"></div>
@@ -155,7 +146,7 @@
 						<div class="row">
 							<div class="col-md-4"></div>
 							<div class="col-md-4">
-								<label class="label" for="auCreadoEl"><b>Creado el:</b></label>
+								<label for="auCreadoEl">Creado el:</label>
 								<span id="auCreadoEl" class="form-control">Desconocido</span>
 							</div>
 							<div class="col-md-4"></div>
@@ -164,7 +155,7 @@
 						<div class="row">
 							<div class="col-md-4"></div>
 							<div class="col-md-4">
-								<label class="label" for="creador"><b>Creado por:</b></label>
+								<label for="creador">Creado por:</label>
 								<span id="creador" class="form-control">Desconocido</span>
 							</div>
 							<div class="col-md-4"></div>
@@ -173,7 +164,7 @@
 						<div class="row">
 							<div class="col-md-4"></div>
 							<div class="col-md-4">
-								<label class="label" for="auModificadoEl"><b>modificado el:</b></label>
+								<label for="auModificadoEl">modificado el:</label>
 								<span id="auModificadoEl" class="form-control">Desconocido</span>
 							</div>
 							<div class="col-md-4"></div>
@@ -182,7 +173,7 @@
 						<div class="row">
 							<div class="col-md-4"></div>
 							<div class="col-md-4">
-								<label class="label" for="modificador"><b>Modificado por:</b></label>
+								<label for="modificador">Modificado por:</label>
 								<span id="modificador" class="form-control">Desconocido</span>
 							</div>
 							<div class="col-md-4"></div>
@@ -191,18 +182,12 @@
 					<br>
 					<div align="center">
 						<div class="pull-rigth">
-							<button name="cancelar" id="cancelar" class="btn m-btn--pill btn-outline-primary" type="button">
-								<span>
-									<i class="la la-times"></i>
-									<span>Cancelar</span>
-								</span>
-					        </button>
-					        <button name="guardar" id="guardar" class="btn m-btn--pill btn-primary" type="button">
-								<span>
-									<i class="la la-check"></i>
-									<span>Guardar</span>
-								</span>
-					        </button>
+							<button name="cancelar" id="cancelar" type="button" class="btn btn-inverse-primary waves-effect waves-light">
+								Cancelar
+							</button>
+                			<button name="guardar" id="guardar"  type="button" class="btn btn-primary waves-effect waves-light">
+								Guardar
+                			</button>
 						</div>
 					</div>
 					{!! Form::close() !!}

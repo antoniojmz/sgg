@@ -3,14 +3,14 @@ $data = Session::get('perfiles');
 $nroPerfiles = Session::get('nroPerfiles');
 @endphp
 <header class="main-header-top hidden-print">
-  <a href="index.html" class="logo">
+  <a href="/home" class="logo">
     <img class="img-fluid able-logo" src="/theme/assets/images/logo.png" alt="Theme-logo">
   </a>
   <nav class="navbar navbar-static-top">
     <a href="#!" data-toggle="offcanvas" class="sidebar-toggle hidden-md-up"></a>
     <div class="navbar-custom-menu">
       <div class="row">
-        <div class="col-md-6">
+        <!-- <div class="col-md-6">
           <div style="margin-top:15px;">
             @if (strlen($data['desPerfil'])>1)
               <span style="color:#FFF">
@@ -18,8 +18,8 @@ $nroPerfiles = Session::get('nroPerfiles');
               </span>
             @endif
           </div>
-        </div>
-        <div class="col-md-6">
+        </div> -->
+        <div class="col-md-12">
           <ul class="top-nav">
             <li class="dropdown notification-menu">
               <a href="#!" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">
@@ -30,21 +30,21 @@ $nroPerfiles = Session::get('nroPerfiles');
                 <li class="not-head">You have <b class="text-primary">4</b> new notifications.</li>
                 <li class="bell-notification">
                   <a href="javascript:;" class="media">
-                    <span class="mr-3 media-icon">
-                      <img class="rounded-circle" src="assets/images/avatar-1.png" alt="User Image">
+                    <span class="mr-3 media-icon"> 
+                      <img class="rounded-circle" src="{{ asset('theme/assets/images/avatar-1.png') }}" alt="User Image">
                     </span>
                     <div class="media-body"><span class="block">Lisa sent you a mail</span><span class="text-muted block-time">2min ago</span></div></a>
                   </li>
                   <li class="bell-notification">
                     <a href="javascript:;" class="media">
-                      <span class="mr-3 media-icon">
-                        <img class="rounded-circle" src="assets/images/avatar-2.png" alt="User Image">
+                      <span class="mr-3 media-icon">  
+                        <img class="rounded-circle" src="{{ asset('theme/assets/images/avatar-2.png') }}" alt="User Image">
                       </span>
                       <div class="media-body"><span class="block">Server Not Working</span><span class="text-muted block-time">20min ago</span></div></a>
                     </li>
                     <li class="bell-notification">
                       <a href="javascript:;" class="media"><span class="mr-3 media-icon">
-                        <img class="rounded-circle" src="assets/images/avatar-3.png" alt="User Image">
+                        <img class="rounded-circle" src="{{ asset('theme/assets/images/avatar-3.png') }}" alt="User Image">
                       </span>
                       <div class="media-body"><span class="block">Transaction xyz complete</span><span class="text-muted block-time">3 hours ago</span></div></a>
                     </li>
@@ -64,7 +64,7 @@ $nroPerfiles = Session::get('nroPerfiles');
                     $avatarUser = Auth::user()->usrUrlimage;
                     (strlen($avatarUser) > 10) ? $avatar=$avatarUser : $avatar="img/default.jpg";
                     @endphp
-                    <span><img class="rounded-circle " src="{{ asset($avatar) }}" style="width:40px;" alt="User Image"></span>
+                    <span><img class="rounded-circle gavatar" src="{{ asset($avatar) }}" style="width:40px;" alt="User Image"></span>
                     @if (isset($data))
                     @if (strlen($data['v_detalle'][0]->usrNombreFull)>1)
                     <span>
