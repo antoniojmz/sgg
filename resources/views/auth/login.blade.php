@@ -5,7 +5,15 @@
         <div class="col-md-3"></div>
         <div class="col-md-6">
             <div class="sign-in-up">
-                <div class="sign-in-up-left"><i class="icofont icofont-users f-64" aria-hidden="true"></i></div>
+                <div class="sign-in-up-left">
+                    <div class="clear">
+                        <i class="icofont icofont-users f-64" aria-hidden="true"></i>
+                        <p></p>
+                        <b>
+                            SG PLUS
+                        </b>
+                    </div>
+                </div>
                 <div class="sign-in-up-right">
                     <div class="row divLogin">
                         <div class="text-center">
@@ -17,11 +25,11 @@
                         <div>
                             <form id="FormLogin" class="form-horizontal" novalidate>
                                 <div class="md-input-wrapper form-group">
-                                    <input type="text" class="md-form-control md-static" name="usrUserName" id="usrUserName" value="25834147-3" />
+                                    <input type="text" class="md-form-control md-static" name="usrUserName" id="usrUserName"/>
                                     <label>Login</label>
                                 </div>
                                 <div class="md-input-wrapper form-group">
-                                    <input type="password" class="md-form-control md-static" name="usrPassword" id="usrPassword" value="123456" />
+                                    <input type="password" class="md-form-control md-static" name="usrPassword" id="usrPassword"/>
                                     <label>Password</label>
                                 </div>
                                 <div class="md-float-group b-none m-b-20">
