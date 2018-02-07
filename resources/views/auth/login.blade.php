@@ -10,7 +10,7 @@
                         <i class="icofont icofont-users f-64" aria-hidden="true"></i>
                         <p></p>
                         <b>
-                            SG PLUS
+                            SG PLUS DEV
                         </b>
                     </div>
                 </div>
