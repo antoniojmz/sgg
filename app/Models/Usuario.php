@@ -370,11 +370,12 @@ class Usuario extends Authenticatable
 
     // Enviar password por email
     public function enviarEmail($email,$usrNombreFull,$pass){
+        $asunto = "Recuperación de Contraseña";
         $contenido="Estima@ ".$usrNombreFull.". Esta notificación es para informarle que se ha solicitado una recuperación de contraseña por su usuario. Su nueva clave es :<b> ".$pass."</b> <p>Si usted no reconoce esta solicitud contacte al administrador del sistema.</p>";
         $data = array(
-            'header' => 'Recuperación de contraseña',
+            'header' => $asunto,
             'footer' => 'Gracias por elegir nuestro portal.',
-            'subject' => 'Recuperación de contraseña',
+            'subject' => $asunto,
             'usrNombreFull' => $usrNombreFull,
             'pass' => $pass,
             );
