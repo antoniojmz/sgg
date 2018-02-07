@@ -17,3 +17,10 @@
 	color:#E02121;
 	font-size: 10px;
 }	
+
+@media screen and (max-width:992px){
+	.SpanTitulo{
+		display:none;
+	}
+
+}

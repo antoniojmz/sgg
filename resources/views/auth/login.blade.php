@@ -16,13 +16,15 @@
                 </div>
                 <div class="sign-in-up-right">
                     <div class="row divLogin">
-                        <div class="text-center">
-                            <p class="SpanTitulo">
-                                Inicio de sesión
-                            </p>
+                        <div>
+                            <center>
+                                <p id="InicioSesion" class="SpanTitulo">
+                                    Inicio de sesión
+                                </p>
+                            </center>
                             <br>
                         </div>
-                        <div>
+                        <div class="col-md-12">
                             <form id="FormLogin" class="form-horizontal" novalidate>
                                 <div class="md-input-wrapper form-group">
                                     <input type="text" class="md-form-control md-static" name="usrUserName" id="usrUserName"/>
