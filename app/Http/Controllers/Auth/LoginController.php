@@ -61,8 +61,9 @@ class LoginController extends Controller
             $model= new Usuario();
             $result = $model->verificarUsuario($data);
             return $result;  
-        }else
+        }else{
             return '{"code":"-2","des_code":"Debe ingresar valores correctos"}';
+        }
     }
 
     public function logout(Request $request){

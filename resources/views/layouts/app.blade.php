@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
+    <?php
+        header("Expires: Tue, 03 Jul 2001 06:00:00 GMT");
+        header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+        header("Cache-Control: no-store, no-cache, must-revalidate");
+        header("Cache-Control: post-check=0, pre-check=0", false);
+        header("Pragma: no-cache");
+    ?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
@@ -55,7 +62,7 @@
     <!-- <script type="text/javascript" src="{{ asset('theme/assets/pages/elements.js') }}"></script> -->
     <!-- <script src="{{ asset('theme/assets/js/menu-horizontal.min.js') }}"></script> -->
 </head>
-<body>
+<body onLoad="if ('Navigator' == navigator.appName)document.forms[0].reset();">
     <div id="app">
         @yield('content')
     </div>

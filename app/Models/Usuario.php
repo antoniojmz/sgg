@@ -411,4 +411,9 @@ class Usuario extends Authenticatable
         return str_replace(".","",$rut);
     }
 
+    public function getUsuario($datos){
+        return DB::table('v_usuarios')->where('idUser',$datos['idUser'])->get(); 
+    }
+
+
 }

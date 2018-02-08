@@ -83,9 +83,13 @@ var ManejoRespuestaProcesar = function(respuesta){
         switch(res.code) {
             case '200':
                 $.growl({message:res.des_code},{type: "success", allow_dismiss: true,});
-                cargarTablaUsuarios(respuesta.respuesta.v_usuarios);
-                $(".divForm").toggle();
-                $('#FormUsuario')[0].reset();
+                location.reload();
+                // $(".divForm").toggle();
+                // $(".divBotonera").toggle();
+                // $('#FormUsuario')[0].reset();
+                // $(".input").prop('readonly', false);
+                // $(".comboclear").prop('disabled', false);
+                // cargarTablaUsuarios(respuesta.respuesta.v_usuarios);
                 break;
             case '-2':
                 $.growl({message:res.des_code},{type: "warning", allow_dismiss: true,});
@@ -108,7 +112,6 @@ var ManejoRespuestaProcesarPerfil = function(respuesta){
                 $.growl({message:res.des_code},{type: "success", allow_dismiss: true,});
                 $(".comboclear").val('').trigger("change");  
                 cargarTablaPerfiles(respuesta.respuesta.v_perfiles);
-                manejoRefresh=1;
                 break;
             case '-2':
                 $.growl({message:res.des_code},{type: "warning", allow_dismiss: true,});
@@ -167,7 +170,7 @@ var cargarTablaUsuarios = function(data){
             {"title": "Última visita","data": "usrUltimaVisita"},
             {"title": "Estatus Bloqueo","data": "DescripcionBloqueo"},
             {
-                "title": "Optiones", 
+                "title": "Options", 
                 "data": "idUser",
                 "render": function(data, type, row, meta){
                     var result = `
@@ -185,7 +188,9 @@ var cargarTablaUsuarios = function(data){
             }],
         });
         limpiarUsuarios=1;
-    if (data.length>0){seleccionarTablaUsuarios();}
+    if (data.length>0){
+        seleccionarTablaUsuarios();
+    }
 };
 
 var seleccionarTablaUsuarios = function(data){
@@ -195,13 +200,11 @@ var seleccionarTablaUsuarios = function(data){
         $(this).addClass('selected');
         RegistroUsuario = TablaTraerCampo('tablaUsuarios',this);
     });
-    $('#tablaUsuarios tbody').on('dblclick', 'tr', function () {
-        bloquearInuts();
-        $("#divBtnModificar").show();
-        $("#divBtnAceptar").hide();  
+    tableB.on('dblclick', 'tr', function () {
+        $(".divForm").toggle();
         cargarFormulario();
         pintarDatosActualizar(RegistroUsuario);
-    }); 
+    });  
 }
 
 var cargarTablaPerfiles = function(data){
@@ -262,7 +265,7 @@ var seleccionarTablaPerfiles = function(data){
 };     
 var crearallcombos = function(data){
     crearcombo('#idPerfil',data.v_perfiles);
-    // crearcombo('#usrEstado',data.v_estados);
+    crearcombo('#usrEstado',data.v_estados);
 }
 
 var cargarFormulario= function(){
@@ -292,9 +295,8 @@ var administrarPerfiles= function(data){
 }
 
 var pintarDatosActualizar= function(data){
-    $(".md-form-control").addClass("md-valid");
     $("#spanTitulo").text("Editar Usuario");
-    $("#perfiles").val("N/A o Inactivo")
+    $("#perfiles").text("N/A o Inactivo")
     $('#divConsulta').show();
     $('#divSpanPerfiles').show();
     $("#idUser").val(data.idUser);
@@ -306,25 +308,58 @@ var pintarDatosActualizar= function(data){
         var des='';
         res.length>1 ? des="Perfiles" : des="Perfil"
         $("#labelPerfil").text(des);
-        $("#perfiles").text(res);
+        $("#perfiles").val(res);
     }
     $("#usrEstado").val(data.usrEstado).trigger("change");
-    if(data.usrUltimaVisita!=null){$("#usrUltimaVisita").val(data.usrUltimaVisita);}
-    if(data.auCreadoEl!=null){$("#auCreadoEl").val(data.auCreadoEl);}
-    if(data.creador!=null){$("#creador").val(data.creador);}
-    if(data.auModificadoEl!=null){$("#auModificadoEl").val(data.auModificadoEl);}
+    if(data.usrUltimaVisita!=null){
+        $("#usrUltimaVisita").val(data.usrUltimaVisita);
+    }else{
+        $("#usrUltimaVisita").val("Desconocido");
+
+    }
+    if(data.auCreadoEl!=null){
+        $("#auCreadoEl").val(data.auCreadoEl);
+    }else{
+        $("#auCreadoEl").val("Desconocido");
+    }
+    if(data.creador!=null){
+        $("#creador").val(data.creador);
+    }else{
+        $("#creador").val("Desconocido");
+    }
+    if(data.auModificadoEl!=null){
+        $("#auModificadoEl").val(data.auModificadoEl);
+    }else{
+        $("#auModificadoEl").val("Desconocido");
+    }
     if(data.modificador!=null){$("#modificador").val(data.modificador);}
 }
 
+var BotonVolver = function(){
+    if (manejoRefresh==1){location.reload();}else{
+        $("#spanTitulo").text("Usuarios registrados");
+        $(".divForm").toggle();    
+        $('#divConsulta').hide();
+        $('#FormUsuario')[0].reset();
+        $("#idUser").val("");
+        $('#divSpanPerfiles').hide();
+        // mostrarDesconocidos();
+        $(".input").prop('readonly', true);
+        $(".comboclear").prop('disabled', true);
+    }
+}
 var BotonCancelar = function(){
-    $(".md-form-control").removeClass("md-valid");
-    $("#spanTitulo").text("Usuarios registrados");
-    $(".divForm").toggle();    
-    $('#divConsulta').hide();
-    $('#FormUsuario')[0].reset();
-    $("#idUser").val("");
-    $('#divSpanPerfiles').hide();
-    mostrarDesconocidos();
+    // if (volverNuevo==1){
+    //     BotonVolver();   
+    // }
+    // $("#btn-volver").show();
+    // $("#divBtnAdmin").show();
+    // $("#divBtnModificar").show();
+    $(".divForm").toggle();
+    // $(".divBotonera").toggle();
+    $(".input").prop('readonly', true);
+    $(".comboclear").prop('disabled', true);
+
 }
 
 var mostrarDesconocidos = function(){
@@ -336,9 +371,10 @@ var mostrarDesconocidos = function(){
 }
 
 var BotonAgregar = function(){
+    $(".divBotonera").toggle(); 
+    $(".input").prop('readonly', false);
+    $(".comboclear").prop('disabled', false);
     $("#spanTitulo").text("Registrar Usuario");
-    $("#divBtnModificar").hide();
-    $("#divBtnAceptar").show();
     cargarFormulario();
     mostrarDesconocidos();
     $("#divConsulta").hide();
@@ -346,7 +382,6 @@ var BotonAgregar = function(){
     $("#idUser").val("");
     $(".comboclear").val('').trigger("change");
     $('#FormUsuario')[0].reset();
-    desbloquearInuts();
 }
 
 var BotonAgregarPerfil = function(){
@@ -404,6 +439,7 @@ var desbloquearCuenta = function(idUser){
     ManejoRespuestaDesbloquearcuenta(respuesta);
 }
 
+
 var cambiarEstatusPerfil = function(data){
     manejoRefresh=1;
     parametroAjax.ruta=rutaAP;
@@ -426,24 +462,10 @@ var verificarRut = function(control){
     }
 }
 
-var bloquearInuts = function(){
-    $("#usrUserName").prop('readonly', true);
-    $("#usrNombreFull").prop('readonly', true);
-    $("#usrEmail").prop('readonly', true);
-    $("#usrEstado").prop('disabled', true);
-}
-
-var desbloquearInuts = function(){
-    $("#usrUserName").prop('readonly', false);
-    $("#usrNombreFull").prop('readonly', false);
-    $("#usrEmail").prop('readonly', false);
-    $("#usrEstado").prop('disabled', false);
-}
-
-var modificarUsuario = function(){
-    $("#divBtnModificar").hide();
-    $("#divBtnAceptar").show();
-    desbloquearInuts();    
+var desbloquearInputs = function(){
+    $(".divBotonera").toggle();
+    $(".input").prop('readonly', false);
+    $(".comboclear").prop('disabled', false);
 }
 
 $(document).ready(function(){
@@ -455,14 +477,15 @@ $(document).ready(function(){
             $("#usrUserName").val(res);
         }else{$("#ErrorRut").text("");}
     });
-    cargarTablaUsuarios(d.v_usuarios);
+	cargarTablaUsuarios(d.v_usuarios);
     crearallcombos(d);    
     $(document).on('click','#guardar',validador);
     $(document).on('click','#cancelar',BotonCancelar);
     $(document).on('click','#agregar',BotonAgregar);
+    $(document).on('click','#btn-volver',BotonVolver);
     $(document).on('click','#agregarP',validadorPerfil);
     $(document).on('click','#volverPerfiles',volverPerfiles);
-    $(document).on('click','#modificar',modificarUsuario);
+    $(document).on('click','#modificar',desbloquearInputs);
     $('#FormUsuario').formValidation({
         excluded:[':disabled'],
         // message: 'El módulo le falta un campo para ser completado',

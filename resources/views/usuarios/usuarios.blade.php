@@ -71,123 +71,103 @@
 					<input type="hidden" name="idProveedor" id="idProveedor" value="0">
 					<input type="hidden" name="_token" id="_token" value="{!! csrf_token() !!}">
 					<div class="row">
-						<div class="col-md-4"></div>
-						<div class="col-md-4">
-							<label for="usrUserName">Login:</label>
-							{!! Form::text('usrUserName', '', [
-							'id'            => 'usrUserName',
-							'class'         => 'form-control',
-							'placeholder'   => 'Login',
-							'style'         => 'width:100%;height:35px',
-							'maxlength'     => '12'])!!}
-	                        <small id="ErrorRut" class="rut-error"></small>
-						</div>
-						<div class="col-md-4"></div>
+						<div class="col-md-2"></div>
+	                    <div class="col-sm-4">
+	                        <div class="md-input-wrapper">
+                                <input id="usrUserName" name="usrUserName" type="text" class="md-form-control" maxlength="12" readonly />
+	                            <label>Login</label>
+		                        <small id="ErrorRut" class="rut-error"></small>
+	                        </div>
+	                    </div>
+	                    <div class="col-sm-4">
+	                        <div class="md-input-wrapper">
+	                        	<input id="usrNombreFull" name="usrNombreFull" type="text" class="md-form-control" maxlength="50" readonly />
+	                            <label>Nombres</label>
+	                        </div>
+	                    </div>
 					</div>
 					<br>
 					<div class="row">
-						<div class="col-md-4"></div>
+						<div class="col-md-2"></div>
 						<div class="col-md-4">
-							<label for="usrNombreFull">Nombres:</label>
-							{!! Form::text('usrNombreFull', '', [
-							'id'            => 'usrNombreFull',
-							'class'         => 'form-control',
-							'placeholder'   => 'Nombres',
-							'style'         => 'width:100%;height:35px',
-							'maxlength'     => '50'])!!}
+	                        <div class="md-input-wrapper">
+								<input id="usrEmail" name="usrEmail" type="text" class="md-form-control" maxlength="50" readonly />
+								<label for="usrEmail">Email:</label>
+							</div>
 						</div>
-						<div class="col-md-4"></div>
+						<div class="col-md-4">
+							<div class="md-input-wrapper">
+                                <select name="usrEstado" id="usrEstado" class="md-disable md-valid" disabled>
+                                    <option>Seleccione...</option>
+                                    <option value="0">Inactivo</option>
+                                    <option value="1">Activo</option>
+                                </select>
+                                <label for="">prueba</label>
+                            </div>
+						</div>
 					</div>
 					<br>
-					<div class="row">
-						<div class="col-md-4"></div>
-						<div class="col-md-4 form-group">
-							<label for="usrEmail">Email:</label>
-							{!! Form::text('usrEmail', '', [
-							'id'            => 'usrEmail',
-							'class'         => 'form-control',
-							'placeholder'   => 'Email',
-							'style'         => 'width:100%;height:35px'])!!}
-						</div>
-						<div class="col-md-4"></div>
-					</div>
-					<div class="row" id="divSpanPerfiles" style="display:none;">
-					<br>
-						<div class="col-md-4"></div>
-						<div class="col-md-4">
-							<label id="labelPerfil" for="perfiles">Perfiles:</label>
-							<span id="perfiles" class="form-control"></span>
-						</div>
-						<div class="col-md-4"></div>
-					</div>
-					<br>
-					<div class="row">
-						<div class="col-md-4"></div>
-						<div class="col-md-4">
-							{!! Field::select('usrEstado', null, null,
-							[ 'label' => 'Estado', 
-							'style' => 'width:100%;height:35px;',
-							'placeholder' => 'Seleccione...',
-							'class' => 'form-control comboclear']) !!}
-						</div>
-						<div class="col-md-4"></div>
-					</div>
 					<div id="divConsulta" style="display:none;">
-						<br>
 						<div class="row">
-							<div class="col-md-4"></div>
-							<div class="col-md-4">
-								<label for="usrUltimaVisita">Última visita:</label>
-								<span id="usrUltimaVisita" class="form-control">Desconocido</span>
+							<div class="col-md-2"></div>
+							<div class="col-md-4" id="divSpanPerfiles" style="display:none;">
+								<div class="md-input-wrapper">
+									<input id="perfiles" name="perfiles" type="text" class="md-form-control md-valid" maxlength="50" readonly />
+									<label for="perfiles">Perfiles:</label>
+								</div>
 							</div>
-							<div class="col-md-4"></div>
+							<div class="col-md-4">
+								<div class="md-input-wrapper">
+									<input id="usrUltimaVisita" name="usrUltimaVisita" type="text" class="md-form-control md-valid" maxlength="50" readonly />
+									<label for="usrUltimaVisita">Última visita:</label>
+								</div>
+							</div>
 						</div>
 						<br>
 						<div class="row">
-							<div class="col-md-4"></div>
-							<div class="col-md-4">
-								<label for="auCreadoEl">Creado el:</label>
-								<span id="auCreadoEl" class="form-control">Desconocido</span>
+							<br>
+							<div class="col-md-3">
+								<div class="md-input-wrapper">
+									<input id="auCreadoEl" name="auCreadoEl" type="text" class="md-form-control md-valid" maxlength="50" readonly />
+									<label for="auCreadoEl">Creado el:</label>
+								</div>
 							</div>
-							<div class="col-md-4"></div>
-						</div>
-						<br>
-						<div class="row">
-							<div class="col-md-4"></div>
-							<div class="col-md-4">
-								<label for="creador">Creado por:</label>
-								<span id="creador" class="form-control">Desconocido</span>
+							<div class="col-md-3">
+								<div class="md-input-wrapper">
+									<input id="creador" name="creador" type="text" class="md-form-control md-valid" maxlength="50" readonly />
+									<label for="creador">Creado por:</label>
+								</div>
 							</div>
-							<div class="col-md-4"></div>
-						</div>
-						<br>			
-						<div class="row">
-							<div class="col-md-4"></div>
-							<div class="col-md-4">
-								<label for="auModificadoEl">modificado el:</label>
-								<span id="auModificadoEl" class="form-control">Desconocido</span>
+							<div class="col-md-3">
+								<div class="md-input-wrapper">
+									<input id="auModificadoEl" name="auModificadoEl" type="text" class="md-form-control md-valid" maxlength="50" readonly />
+									<label for="auModificadoEl">modificado el:</label>
+								</div>
 							</div>
-							<div class="col-md-4"></div>
-						</div>
-						<br>
-						<div class="row">
-							<div class="col-md-4"></div>
-							<div class="col-md-4">
-								<label for="modificador">Modificado por:</label>
-								<span id="modificador" class="form-control">Desconocido</span>
+							<div class="col-md-3">
+								<div class="md-input-wrapper">
+									<input id="modificador" name="modificador" type="text" class="md-form-control md-valid" maxlength="50" readonly />
+									<label for="modificador">modificado por:</label>
+								</div>
 							</div>
-							<div class="col-md-4"></div>
 						</div>
 					</div>
 					<br>
 					<div align="center">
 						<div class="pull-rigth">
-							<button name="cancelar" id="cancelar" type="button" class="btn btn-inverse-primary waves-effect waves-light">
-								Cancelar
-							</button>
-                			<button name="guardar" id="guardar"  type="button" class="btn btn-primary waves-effect waves-light">
-								Guardar
-                			</button>
+							<div id="divBtnModificar">
+								<button id="modificar" type="button" class="btn btn-primary waves-effect waves-light">
+									Modificar
+								</button>
+							</div>
+							<div id="divBtnAceptar">
+								<button id="cancelar" type="button" class="btn btn-inverse-primary waves-effect waves-light">
+									Cancelar
+								</button>
+	                			<button id="guardar"  type="button" class="btn btn-primary waves-effect waves-light">
+									Guardar
+	                			</button>
+							</div>
 						</div>
 					</div>
 					{!! Form::close() !!}

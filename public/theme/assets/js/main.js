@@ -342,28 +342,27 @@ $(document).ready(function() {
 
 /*Normal Color */
 $(".color-1").on('click',function() {
-    $("#color").attr("href", "assets/css/color/color-1.css");
+    $("#color").attr("href", "/theme/assets/css/color/color-1.css");
     return false;
 });
 $(".color-2").on('click',function(e) {
-    $("#color").attr("href", "assets/css/color/color-2.css");
+    $("#color").attr("href", "/theme/assets/css/color/color-2.css");
     return false;
 });
 $(".color-3").on('click',function() {
-    $("#color").attr("href", "assets/css/color/color-3.css");
+    $("#color").attr("href", "/theme/assets/css/color/color-3.css");
     return false;
 });
 $(".color-4").on('click',function() {
-
-    $("#color").attr("href", "assets/css/color/color-4.css");
+    $("#color").attr("href", "/theme/assets/css/color/color-4.css");
     return false;
 });
 $(".color-5").on('click',function() {
-    $("#color").attr("href", "assets/css/color/color-5.css");
+    $("#color").attr("href", "/theme/assets/css/color/color-5.css");
     return false;
 });
 $(".color-inverse").on('click',function() {
-    $("#color").attr("href", "assets/css/color/inverse.css");
+    $("#color").attr("href", "/theme/assets/css/color/inverse.css");
     return false;
 });
 

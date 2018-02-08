@@ -41,16 +41,17 @@ $(document).ready(function() {
 	//Datos de usuario para cargar el contenido dependiendo del perfil
 	v['v_perfil'] = $("#idPerfiltext").val();
 	v['idUser'] = $("#idUsertext").val();
-	//Cierre de sesion despues de 10 min de inactividad
+	//Cierre de sesion despues de 20 min de inactividad
+	setTimeout(function(){Salir();},1200000);
 	// Cierre de session por manupulacion de url o cierre del navegador
-	// window.onbeforeunload = function (e) {if (v_salir == 0){Salir();}v_salir = 0;}
-    // $(document).on('click','.m-menu__link',cambiarSalir);
+	window.onbeforeunload = function (e) {if (v_salir == 0){Salir();}v_salir = 0;}
     // $(document).on('click','.btn',cambiarSalir);
-    // $(document).on('click','.m-nav__link',cambiarSalir);
+    $(document).on('click','.settings-menu',cambiarSalir);
+    $(document).on('click','.waves-effect',cambiarSalir);
     $(document).on('click','#btn-logout',Salir);
-	// $(document.body).on("keydown", this, function (event) {
-	//     if (event.keyCode == 116) {
-	//         cambiarSalir();
-	//     }
-	// });
+	$(document.body).on("keydown", this, function (event) {
+	    if (event.keyCode == 116) {
+	        cambiarSalir();
+	    }
+	});
 });

@@ -10,15 +10,6 @@ $nroPerfiles = Session::get('nroPerfiles');
     <a href="#!" data-toggle="offcanvas" class="sidebar-toggle hidden-md-up"></a>
     <div class="navbar-custom-menu">
       <div class="row">
-        <!-- <div class="col-md-6">
-          <div style="margin-top:15px;">
-            @if (strlen($data['desPerfil'])>1)
-              <span style="color:#FFF">
-                Perfíl: {{$data['desPerfil']}}
-              </span>
-            @endif
-          </div>
-        </div> -->
         <div class="col-md-12">
           <ul class="top-nav">
             <li class="dropdown notification-menu">

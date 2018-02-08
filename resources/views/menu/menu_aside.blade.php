@@ -431,7 +431,7 @@
             <i class="icofont icofont-company"></i><span>Adminstración </span><i class="icon-arrow-down"></i>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{ route('usuarios') }}"><i class="icon-arrow-right"></i>Usuarios</a></li>
+            <li><a class="waves-effect" href="{{ route('usuarios') }}"><i class="icon-arrow-right"></i>Usuarios</a></li>
           </ul>
         </li>
       </ul>

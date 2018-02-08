@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
+  <?php
+      header("Expires: Tue, 03 Jul 2001 06:00:00 GMT");
+      header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+      header("Cache-Control: no-store, no-cache, must-revalidate");
+      header("Cache-Control: post-check=0, pre-check=0", false);
+      header("Pragma: no-cache");
+  ?>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -10,6 +17,14 @@
   <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script language="JavaScript" type="text/javascript">
+      var v_salir = 0;
+      var RutaSalir = "{{ URL::route('logout') }}";
+      var salir = "{{ URL::route('logout') }}";
+      var v = [];
+      v['v_perfil'] = '';
+      v['idUser'] = '';
+  </script>
   {!! Html::style('theme/assets/icon/icofont/css/icofont.css') !!}
   {!! Html::style('theme/assets/icon/simple-line-icons/css/simple-line-icons.css') !!}
   {!! Html::style('theme/bower_components/bootstrap/css/bootstrap.min.css') !!}
@@ -61,7 +76,7 @@
   {{ HTML::script('js/utils/utils.js') }}
   {{ HTML::script('js/index/index.js') }}
 </head>
-<body class="horizontal-fixed fixed">
+<body onLoad="if ('Navigator' == navigator.appName)document.forms[0].reset();" class="horizontal-fixed fixed">
   <form id="formLogout" method="POST" style="display: none;">
     {{ csrf_field() }}
   </form>
@@ -312,12 +327,5 @@
       </div>
     </div>
   </div>
-  <script language="JavaScript" type="text/javascript">
-    var v_salir = 0;
-    var RutaSalir = "{{ URL::route('logout') }}";
-    var v = [];
-    v['v_perfil'] = '';
-    v['idUser'] = '';
-  </script>
 </body>
 </html>

@@ -173,12 +173,12 @@ class UsuarioController extends Controller
         return $result;
     }
 
-    // Reiniciar contraseña de uusarios (Administrador)
+    // Reiniciar contraseña de usuarios (Administrador)
     protected function postReiniciar (Request $request){
         $datos = $request->all();
-        $datos['email']=$datos['usrEmail'];
         $model= new Usuario();
-        $result = $model->cambiarPassword($datos);
+        $usuario = Usuario::find($datos['idUser'] );
+        $result = $model->cambiarPassword($usuario);
         return $result;
     }
 
@@ -186,7 +186,8 @@ class UsuarioController extends Controller
     protected function postUsuarioactivo (Request $request){
         $datos = $request->all();
         $model= new Usuario();
-        $result['activar'] = $model->activarUsuario($datos);
+        $usuario = Usuario::find($datos['idUser']);
+        $result['activar'] = $model->activarUsuario($usuario);
         $result['v_usuarios'] = $model->listUsuario();
         return $result;
     }
@@ -204,9 +205,13 @@ class UsuarioController extends Controller
     protected function postDesbloquearcuenta (Request $request){
         $datos = $request->all();
         $model= new Usuario();
-        $result['v_desbloqueo'] = $model->resetIntentosFallidos($datos['idUser']);
-        $result['v_usuarios'] = $model->listUsuario();
-
+        $usuario = $model->getUsuario($datos);
+        if ($usuario[0]->EstadoBloqueo == 1){
+            $result['v_desbloqueo'] = '{"code":"-2","des_code":"Este usuario no se encuentra bloqueado"}';
+        }else{
+            $result['v_desbloqueo'] = $model->resetIntentosFallidos($datos['idUser']);
+            $result['v_usuarios'] = $model->listUsuario();
+        }
         return $result;
     }
     
