@@ -19,6 +19,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/empresas', 'EmpresaController@getEmpresas')->name('empresas');
+Route::post('/empresas', 'EmpresaController@postEmpresas')->name('empresas');
+Route::post('/activarE', 'EmpresaController@postEmpresactiva')->name('activarE');
+Route::post('/detallesE', 'EmpresaController@postEmpresadeatalles')->name('detallesE');
+
 Route::group(['namespace' => 'Auth', 'prefix' => 'admin'], function (){
 	//accesos (Seleccionar acceso para ingresar a la aplicacion)
 	Route::get('/accesos', 'UsuarioController@getAccesos')->name('accesos');

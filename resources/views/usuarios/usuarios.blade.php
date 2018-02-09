@@ -42,9 +42,9 @@
 									<div class="col-md-7">
 										<form id="FormPerfil" method="POST">
 											<input type="hidden" id="idUser2">
-											<select class="comboclear form-control m-select2" id="idPerfil" name="idPerfil" style="width:100%;">
+											<!-- <select class="comboclear form-control m-select2" id="idPerfil" name="idPerfil" style="width:100%;">
 												<option value="">Seleccione..</option>
-											</select>
+											</select> -->
 										</form>
 									</div>
 									
@@ -71,39 +71,48 @@
 					<input type="hidden" name="idProveedor" id="idProveedor" value="0">
 					<input type="hidden" name="_token" id="_token" value="{!! csrf_token() !!}">
 					<div class="row">
-						<div class="col-md-2"></div>
-	                    <div class="col-sm-4">
+						<div class="col-sm-4">
 	                        <div class="md-input-wrapper">
                                 <input id="usrUserName" name="usrUserName" type="text" class="md-form-control" maxlength="12" readonly />
 	                            <label>Login</label>
 		                        <small id="ErrorRut" class="rut-error"></small>
 	                        </div>
-	                    </div>
+						</div>
 	                    <div class="col-sm-4">
 	                        <div class="md-input-wrapper">
-	                        	<input id="usrNombreFull" name="usrNombreFull" type="text" class="md-form-control" maxlength="50" readonly />
+	                        	<input id="usrNombreFull" name="usrNombreFull" type="text" class="md-form-control vtNombrelmayall" maxlength="50" readonly />
 	                            <label>Nombres</label>
 	                        </div>
 	                    </div>
-					</div>
-					<br>
-					<div class="row">
-						<div class="col-md-2"></div>
-						<div class="col-md-4">
+	                    <div class="col-sm-4">
 	                        <div class="md-input-wrapper">
 								<input id="usrEmail" name="usrEmail" type="text" class="md-form-control" maxlength="50" readonly />
 								<label for="usrEmail">Email:</label>
 							</div>
-						</div>
-						<div class="col-md-4">
+	                    </div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col-sm-2"></div>
+						<div class="col-sm-4">
 							<div class="md-input-wrapper">
                                 <select name="usrEstado" id="usrEstado" class="md-disable md-valid" disabled>
                                     <option>Seleccione...</option>
                                     <option value="0">Inactivo</option>
                                     <option value="1">Activo</option>
                                 </select>
-                                <label for="">prueba</label>
+                                <label for="">Estado</label>
                             </div>
+						</div>
+						<div class="col-sm-4">
+	                        <div class="md-input-wrapper">
+	                         	<select name="idPerfil" id="idPerfil" class="md-disable md-valid" disabled>
+                                    <option>Seleccione...</option>
+                                    <option value="1">Administrador</option>
+                                    <option value="2">Usuario</option>
+                                </select>
+                                <label for="idPerfil">Perfíl</label>
+							</div>
 						</div>
 					</div>
 					<br>
@@ -111,40 +120,37 @@
 						<div class="row">
 							<div class="col-md-2"></div>
 							<div class="col-md-4" id="divSpanPerfiles" style="display:none;">
-								<div class="md-input-wrapper">
+								<!-- <div class="md-input-wrapper">
 									<input id="perfiles" name="perfiles" type="text" class="md-form-control md-valid" maxlength="50" readonly />
 									<label for="perfiles">Perfiles:</label>
-								</div>
-							</div>
-							<div class="col-md-4">
+								</div> -->
 								<div class="md-input-wrapper">
 									<input id="usrUltimaVisita" name="usrUltimaVisita" type="text" class="md-form-control md-valid" maxlength="50" readonly />
 									<label for="usrUltimaVisita">Última visita:</label>
 								</div>
 							</div>
-						</div>
-						<br>
-						<div class="row">
-							<br>
-							<div class="col-md-3">
+							<div class="col-md-4">
 								<div class="md-input-wrapper">
 									<input id="auCreadoEl" name="auCreadoEl" type="text" class="md-form-control md-valid" maxlength="50" readonly />
 									<label for="auCreadoEl">Creado el:</label>
 								</div>
 							</div>
-							<div class="col-md-3">
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-md-4">
 								<div class="md-input-wrapper">
 									<input id="creador" name="creador" type="text" class="md-form-control md-valid" maxlength="50" readonly />
 									<label for="creador">Creado por:</label>
 								</div>
 							</div>
-							<div class="col-md-3">
+							<div class="col-md-4">
 								<div class="md-input-wrapper">
 									<input id="auModificadoEl" name="auModificadoEl" type="text" class="md-form-control md-valid" maxlength="50" readonly />
 									<label for="auModificadoEl">modificado el:</label>
 								</div>
 							</div>
-							<div class="col-md-3">
+							<div class="col-md-4">
 								<div class="md-input-wrapper">
 									<input id="modificador" name="modificador" type="text" class="md-form-control md-valid" maxlength="50" readonly />
 									<label for="modificador">modificado por:</label>

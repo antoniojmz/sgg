@@ -29,6 +29,7 @@
                                 <div class="md-input-wrapper form-group">
                                     <input type="text" class="md-form-control md-static" name="usrUserName" id="usrUserName"/>
                                     <label>Login</label>
+                                    <small id="ErrorRut" class="rut-error"></small>
                                 </div>
                                 <div class="md-input-wrapper form-group">
                                     <input type="password" class="md-form-control md-static" name="usrPassword" id="usrPassword"/>

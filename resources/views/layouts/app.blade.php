@@ -57,6 +57,7 @@
     <!-- <script type="text/javascript" src="{{ asset('theme/bower_components/classie/js/classie.js') }}"></script> -->
     <!-- notification -->
     <script type="text/javascript" src="{{ asset('theme/assets/plugins/notification/js/bootstrap-growl.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/utils/utils.js') }}"></script>
     <!-- custom js -->
     <!-- <script type="text/javascript" src="{{ asset('theme/assets/js/main.min.js') }}"></script> -->
     <!-- <script type="text/javascript" src="{{ asset('theme/assets/pages/elements.js') }}"></script> -->

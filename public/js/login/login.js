@@ -1,3 +1,4 @@
+var errorRut = 0;
 var parametroAjax = {
     'token': $('input[name=_token]').val(),
     'tipo': 'POST',
@@ -43,10 +44,12 @@ var MostrarFormLogin = function(){
 }
 
 var EnviarFormLogin = function(){
-    parametroAjax.ruta="login";
-    parametroAjax.data = $("#FormLogin").serialize();
-    respuesta=procesarajax(parametroAjax);
-    ManejoRespuestaLogin(respuesta);
+    if (errorRut==0){ 
+        parametroAjax.ruta="login";
+        parametroAjax.data = $("#FormLogin").serialize();
+        respuesta=procesarajax(parametroAjax);
+        ManejoRespuestaLogin(respuesta);
+    }    
 }
 
 var EnviarFormPasswd = function(){
@@ -64,7 +67,28 @@ var validadorPasswd = function(){
     $('#FormPasswd').formValidation('validate');
 };
 
+var verificarRut = function(control){
+    var res = Valida_Rut(control);
+    var format = formateaRut(control.val(), res);
+    if (format != false){
+        errorRut = 0;       
+        $("#ErrorRut").text("");
+        return format;
+    }else{
+        errorRut = 1;       
+        $("#ErrorRut").text("Rut invalido");
+        return control.val();
+    }
+}
+
 $(document).ready(function(){
+    $("#usrUserName").focusout(function() {
+        var valid = $("#usrUserName").val();
+        if (valid.length > 0){
+            var res = verificarRut($("#usrUserName"));
+            $("#usrUserName").val(res);
+        }
+    });
     $(document).on('click','#LinkForgot',MostrarFormPasswd);
     $(document).on('click','#VolverLogin',MostrarFormLogin);
     $(document).on('click','#EnviarLogin',validadorLogin);

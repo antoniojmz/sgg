@@ -13,8 +13,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <title>{{ config('app.name', 'Laravel') }}</title>
-  <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
-  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="{{ asset('theme/assets/images/favicon.png') }}" type="image/x-icon">
+  <link rel="icon" href="{{ asset('theme/assets/images/favicon.ico') }}" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script language="JavaScript" type="text/javascript">
@@ -73,6 +73,7 @@
   {{ HTML::script('theme/bower_components/datatables.net-buttons/js/buttons.print.min.js') }}
   {{ HTML::script('theme/bower_components/datatables.net-buttons/js/buttons.html5.min.js') }}
   {{ HTML::script('plugins/jQuery-contextMenu-master/dist/jquery.contextMenu.min.js') }}
+  {{ HTML::script('plugins/validator/valtexto.js') }}
   {{ HTML::script('js/utils/utils.js') }}
   {{ HTML::script('js/index/index.js') }}
 </head>

@@ -83,9 +83,9 @@ var ManejoRespuestaProcesar = function(respuesta){
         switch(res.code) {
             case '200':
                 $.growl({message:res.des_code},{type: "success", allow_dismiss: true,});
-                cargarTablaUsuarios(respuesta.respuesta.v_usuarios);
                 $(".divForm").toggle();
                 $('#FormUsuario')[0].reset();
+                cargarTablaUsuarios(respuesta.respuesta.v_usuarios);
                 break;
             case '-2':
                 $.growl({message:res.des_code},{type: "warning", allow_dismiss: true,});
@@ -157,12 +157,13 @@ var cargarTablaUsuarios = function(data){
                     return data;
                 }
             },
+            {"title": "Perfíl","data": "des_Perfil"},
             {"title": "fecha de creacion","data": "auCreadoEl",visible:0},
             {"title": "Creado id","data": "auCreadoPor",visible:0},
             {"title": "Creado por","data": "creador"},
             {"title": "Teléfono","data": "auModificadoEl",visible:0},
             {"title": "Modificado id","data": "auModificadoPor",visible:0},
-            {"title": "Modificado por","data": "modificador"},
+            {"title": "Modificado por","data": "modificador",visible:0},
             {"title": "Estado","data": "des_estado"},
             {"title": "Última visita","data": "usrUltimaVisita"},
             {"title": "Estatus Bloqueo","data": "DescripcionBloqueo"},
@@ -259,11 +260,12 @@ var seleccionarTablaPerfiles = function(data){
             }
         });
     });
-};     
-var crearallcombos = function(data){
-    crearcombo('#idPerfil',data.v_perfiles);
-    // crearcombo('#usrEstado',data.v_estados);
-}
+}; 
+
+// var crearallcombos = function(data){
+//     crearcombo('#idPerfil',data.v_perfiles);
+//     crearcombo('#usrEstado',data.v_estados);
+// }
 
 var cargarFormulario= function(){
     $(".divForm").toggle();
@@ -301,14 +303,15 @@ var pintarDatosActualizar= function(data){
     $("#usrUserName").val(data.usrUserName);
     $("#usrEmail").val(data.usrEmail);
     $("#usrNombreFull").val(data.usrNombreFull);
-    if(data.des_Perfil!=null){
-        var res = data.des_Perfil.split(",");
-        var des='';
-        res.length>1 ? des="Perfiles" : des="Perfil"
-        $("#labelPerfil").text(des);
-        $("#perfiles").text(res);
-    }
+    // if(data.des_Perfil!=null){
+    //     var res = data.des_Perfil.split(",");
+    //     var des='';
+    //     res.length>1 ? des="Perfiles" : des="Perfil"
+    //     $("#labelPerfil").text(des);
+    //     $("#perfiles").text(res);
+    // }
     $("#usrEstado").val(data.usrEstado).trigger("change");
+    $("#idPerfil").val(data.idPerfil).trigger("change");
     if(data.usrUltimaVisita!=null){$("#usrUltimaVisita").val(data.usrUltimaVisita);}
     if(data.auCreadoEl!=null){$("#auCreadoEl").val(data.auCreadoEl);}
     if(data.creador!=null){$("#creador").val(data.creador);}
@@ -359,8 +362,8 @@ var BotonAgregarPerfil = function(){
 
 
 var ProcesarUsuario = function(){
-    if (errorRut==0){
-        var camposNuevo = {'usrEstado': $('#usrEstado').val()}
+    if (errorRut==0){  
+        var camposNuevo = {'usrEstado': $('#usrEstado').val(), 'idPerfil': $('#idPerfil').val()}
         parametroAjax.ruta=ruta;
         parametroAjax.data = $("#FormUsuario").serialize() + '&' + $.param(camposNuevo);
         respuesta=procesarajax(parametroAjax);
@@ -431,6 +434,7 @@ var bloquearInuts = function(){
     $("#usrNombreFull").prop('readonly', true);
     $("#usrEmail").prop('readonly', true);
     $("#usrEstado").prop('disabled', true);
+    $("#idPerfil").prop('disabled', true);
 }
 
 var desbloquearInuts = function(){
@@ -438,6 +442,7 @@ var desbloquearInuts = function(){
     $("#usrNombreFull").prop('readonly', false);
     $("#usrEmail").prop('readonly', false);
     $("#usrEstado").prop('disabled', false);
+    $("#idPerfil").prop('disabled', false);
 }
 
 var modificarUsuario = function(){
@@ -456,7 +461,7 @@ $(document).ready(function(){
         }else{$("#ErrorRut").text("");}
     });
     cargarTablaUsuarios(d.v_usuarios);
-    crearallcombos(d);    
+    // crearallcombos(d);    
     $(document).on('click','#guardar',validador);
     $(document).on('click','#cancelar',BotonCancelar);
     $(document).on('click','#agregar',BotonAgregar);
@@ -494,6 +499,14 @@ $(document).ready(function(){
                 }
             },
             'usrEstado': {
+                verbose: false,
+                validators: {
+                    notEmpty: {
+                        message: 'El campo es requerido.'
+                    },
+                }
+            },
+            'idPerfil': {
                 verbose: false,
                 validators: {
                     notEmpty: {

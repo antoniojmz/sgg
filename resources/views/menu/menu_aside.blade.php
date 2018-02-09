@@ -432,6 +432,8 @@
           </a>
           <ul class="treeview-menu">
             <li><a class="waves-effect" href="{{ route('usuarios') }}"><i class="icon-arrow-right"></i>Usuarios</a></li>
+            <li><a class="waves-effect" href="{{ route('empresas') }}"><i class="icon-arrow-right"></i>Empresas</a></li>
+            
           </ul>
         </li>
       </ul>

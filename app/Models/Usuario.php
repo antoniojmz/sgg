@@ -46,7 +46,7 @@ class Usuario extends Authenticatable
 
     // inicio de sesion de usuario
     public function verificarUsuario($data){
-        // $data['usrUserName'] = $this->LimpiarRut($data['usrUserName']);
+        $data['usrUserName'] = $this->LimpiarRut($data['usrUserName']);
         $user = DB::table('v_usuarios')->where('usrUserName',$data['usrUserName'])->get();
         if (strlen($user)>3){
             if ($user[0]->usrEstado>0){
@@ -162,7 +162,7 @@ class Usuario extends Authenticatable
         $datos['idUser']==null ? $idUser=0 : $idUser= $datos['idUser'];
         $pass = substr($datos['usrUserName'], 0,6);
         $usrPassword=bcrypt($pass);
-        $sql="select f_registro_usuario(".$idUser.",'".$datos['usrUserName']."','".$usrPassword."','".$datos['usrNombreFull']."',".$datos['usrEstado'].",".$idAdmin.",'".$datos['_token']."','".$datos['usrEmail']."')";
+        $sql="select f_registro_usuario(".$idUser.",'".$datos['usrUserName']."','".$usrPassword."','".$datos['usrNombreFull']."',".$datos['usrEstado'].",".$idAdmin.",'".$datos['_token']."','".$datos['usrEmail']."',".$datos['idPerfil'].")";
         $execute=DB::select($sql);
         foreach ($execute[0] as $key => $value) {
             $result['f_registro_usuario']=$value;
