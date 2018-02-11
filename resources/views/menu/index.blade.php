@@ -37,6 +37,10 @@
   {!! Html::style('theme/assets/plugins/data-table/css/buttons.dataTables.min.css') !!}
   {!! Html::style('theme/bower_components/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css') !!}
   {!! Html::style('theme/bower_components/datatables.net/css/select.bootstrap4.css') !!}
+
+  {!! Html::style('theme/assets/plugins/list-scroll/css/list.css') !!}
+  {!! Html::style('theme/bower_components/stroll/css/stroll.css') !!}
+
   {!! Html::style('plugins/validator/formValidation.min.css') !!}
   {!! Html::style('theme/bower_components/select2/css/select2.min.css') !!}
   {!! Html::style('plugins/jQuery-contextMenu-master/dist/jquery.contextMenu.min.css') !!}
@@ -66,6 +70,14 @@
   {{ HTML::script('theme/bower_components/datatables.net-buttons/js/dataTables.buttons.min.js') }}
   {{ HTML::script('theme/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js') }}
   {{ HTML::script('theme/bower_components/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js') }}
+
+
+  {{ HTML::script('theme/assets/pages/contact-detail.js') }}
+  {{ HTML::script('theme/bower_components/stroll/js/stroll.js') }}
+  {{ HTML::script('theme/assets/plugins/list/js/list.js') }}
+ 
+
+
   {{ HTML::script('theme/bower_components/datatables.net/js/dataTables.select.js') }}
   {{ HTML::script('theme/assets/plugins/data-table/js/jszip.min.js') }}
   {{ HTML::script('theme/assets/plugins/data-table/js/pdfmake.min.js') }}

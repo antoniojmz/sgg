@@ -54,6 +54,16 @@ var crearfecha = function(control){
         }).on('changeDate', function(e){
         });
     }
+
+//////////////////////////////////////crear select original HTML /////////////////////////////////////////////////////
+var crearselect = function(data,control){
+    var options = '<option>Seleccione...</option>';
+    for (var i = 0; i < data.length; i++) {
+        options += '<option value="' + data[i].id + '">' + data[i].text + '</option>';
+    }
+    $("select#"+control).html(options);   
+}
+    
 //////////////////////////////////////crear select 2 jquery /////////////////////////////////////////////////////
 var crearcombo = function(control, data){
     $(control).select2({

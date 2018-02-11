@@ -44,10 +44,11 @@ class EmpresaController extends Controller
     {
         $model= new Empresa();
         $data['v_empresas'] = $model->listEmpresa();
+        $data['v_estados'] = $model->listEstados();
         return View::make('empresas.empresas',$data);
-        return view('menu.home');
     }
 
+    //Registrar o actualizar empresa
     protected function postEmpresas(Request $request){
         $datos = $request->all();
         $user= new Usuario();
@@ -65,17 +66,15 @@ class EmpresaController extends Controller
         $empresa = Empresa::find($datos['IdEmpresa']);
         $result['activar'] = $model->activarEmpresa($empresa);
         $result['v_empresas'] = $model->listEmpresa();
-        log::info($result);
         return $result;
     }
 
     // Ver detalles en las empresas
-    protected function postEmpresadeatalles (Request $request){
+    protected function postEmpresadetalle (Request $request){
         $datos = $request->all();
         $model= new Empresa();
         $result['v_detalles'] = $model->getOneDetalle($datos['IdEmpresa']);
         $result['v_locales'] = $model->localesEmpresa($datos['IdEmpresa']);
-        log::info($result);
         return $result;
     }
 

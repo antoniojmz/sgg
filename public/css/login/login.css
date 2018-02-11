@@ -16,6 +16,9 @@
 #ErrorRut{
 	color:#E02121;
 	font-size: 10px;
+}
+#toolMantencion{
+	margin-top: 150px !important;
 }	
 
 @media screen and (max-width:992px){

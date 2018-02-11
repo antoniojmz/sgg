@@ -45,11 +45,9 @@ class Empresa extends Authenticatable
 
     // registrar un nuevo empresa en la aplicacion
     public function regEmpresa($datos){
-        log::info($datos);        
         $idAdmin = Auth::id();
         $datos['IdEmpresa']==null ? $Id=0 : $Id= $datos['IdEmpresa'];
         $sql="select f_registro_empresa(".$Id.",'".$datos['RUT']."','".$datos['RazonSocial']."','".$datos['NombreFantasia']."','".$datos['Giro']."',".$datos['IdRepresentanteLegal'].",".$datos['EstadoEmpresa'].",".$idAdmin.")";
-        log::info($sql);
         $execute=DB::select($sql);
         foreach ($execute[0] as $key => $value) {
             $result['f_registro_empresa']=$value;

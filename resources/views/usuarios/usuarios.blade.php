@@ -1,7 +1,8 @@
 @extends('menu.index')
 @section('content')
 <div class="row">
-	<div class="col-md-12">
+	@include('menu.mantenedores')
+	<div class="col-md-10">
 	    <div class="card">
 	        <div class="card-header">
 	        	<center>

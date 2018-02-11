@@ -431,8 +431,55 @@
             <i class="icofont icofont-company"></i><span>Adminstración </span><i class="icon-arrow-down"></i>
           </a>
           <ul class="treeview-menu">
-            <li><a class="waves-effect" href="{{ route('usuarios') }}"><i class="icon-arrow-right"></i>Usuarios</a></li>
-            <li><a class="waves-effect" href="{{ route('empresas') }}"><i class="icon-arrow-right"></i>Empresas</a></li>
+            <li>
+              <a class="waves-effect" href="{{ route('usuarios') }}">
+                <i class="icon-arrow-right"></i>
+                Usuarios
+              </a>
+            </li>
+            <li>
+              <a class="waves-effect" href="{{ route('empresas') }}">
+                <i class="icon-arrow-right"></i>
+                Empresas
+              </a>
+            </li>
+            <li>
+              <a class="waves-effect" href="{{ route('locales') }}">
+                <i class="icon-arrow-right"></i>
+                Locales
+              </a>
+            </li>
+            <li>
+              <a class="waves-effect" href="{{ route('bodegas') }}">
+                <i class="icon-arrow-right"></i>
+                Bodegas
+              </a>
+            </li>
+            <li>
+              <a class="waves-effect" href="{{ route('umedidas') }}">
+                <i class="icon-arrow-right"></i>
+                Unidad de Medidas
+              </a>
+            </li>
+            <li>
+              <a class="waves-effect" href="{{ route('familias') }}">
+                <i class="icon-arrow-right"></i>
+                Familias
+              </a>
+            </li>
+            <li>
+              <a class="waves-effect" href="{{ route('subfamilias') }}">
+                <i class="icon-arrow-right"></i>
+                Subfamilias
+              </a>
+            </li>
+            <li>
+              <a class="waves-effect" href="{{ route('impuestos') }}">
+                <i class="icon-arrow-right"></i>
+                Impuestos
+              </a>
+            </li>
+
             
           </ul>
         </li>

@@ -19,10 +19,49 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+//CRUD Empresas
 Route::get('/empresas', 'EmpresaController@getEmpresas')->name('empresas');
 Route::post('/empresas', 'EmpresaController@postEmpresas')->name('empresas');
 Route::post('/activarE', 'EmpresaController@postEmpresactiva')->name('activarE');
-Route::post('/detallesE', 'EmpresaController@postEmpresadeatalles')->name('detallesE');
+Route::post('/detallesE', 'EmpresaController@postEmpresadetalle')->name('detallesE');
+
+//CRUD Locales
+Route::get('/locales', 'LocalController@getLocal')->name('locales');
+Route::post('/locales', 'LocalController@postLocal')->name('locales');
+Route::post('/activarL', 'LocalController@postLocalactivo')->name('activarL');
+Route::post('/detallesL', 'LocalController@postLocaldetalle')->name('detallesL');
+
+//CRUD Bodega
+Route::get('/bodegas', 'BodegaController@getBodega')->name('bodegas');
+Route::post('/bodegas', 'BodegaController@postBodega')->name('bodegas');
+Route::post('/activarB', 'BodegaController@postBodegactivo')->name('activarB');
+Route::post('/detallesB', 'BodegaController@postBodegadetalle')->name('detallesB');
+
+//CRUD Unidad de medida
+Route::get('/umedidas', 'UnidadmedidaController@getUnidadmedida')->name('umedidas');
+Route::post('/umedidas', 'UnidadmedidaController@postUnidadmedida')->name('umedidas');
+Route::post('/activarUm', 'UnidadmedidaController@postUnidadmedidactivo')->name('activarUm');
+
+//CRUD Familia
+Route::get('/familias', 'FamiliaController@getFamilia')->name('familias');
+Route::post('/familias', 'FamiliaController@postFamilia')->name('familias');
+Route::post('/activarF', 'FamiliaController@postFamiliactivo')->name('activarF');
+
+//CRUD SubFamilia
+Route::get('/subfamilias', 'SubfamiliaController@getSubamilia')->name('subfamilias');
+Route::post('/subfamilias', 'SubfamiliaController@postSubfamilia')->name('subfamilias');
+Route::post('/activarSf', 'SubfamiliaController@postSubfamiliactivo')->name('activarSf');
+
+//CRUD Impuestos
+Route::get('/impuestos', 'ImpuestoController@getImpuesto')->name('impuestos');
+Route::post('/impuestos', 'ImpuestoController@postImpuesto')->name('impuestos');
+Route::post('/activarI', 'ImpuestoController@postImpuestoactivo')->name('activarI');
+
+//CRUD Productos
+Route::get('/productos', 'ProductoController@getBodega')->name('productos');
+Route::post('/productos', 'ProductoController@postBodega')->name('productos');
+Route::post('/activarPr', 'ProductoController@postBodegactivo')->name('activarPr');
+Route::post('/detallesPr', 'ProductoController@postBodegadetalle')->name('detallesPr');
 
 Route::group(['namespace' => 'Auth', 'prefix' => 'admin'], function (){
 	//accesos (Seleccionar acceso para ingresar a la aplicacion)
