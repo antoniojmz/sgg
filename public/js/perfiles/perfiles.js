@@ -10,7 +10,7 @@ var ManejoRespuestaProcesar = function(respuesta){
     if(respuesta.code==200){
         BotonCancelar();
     }else{
-        toastr.error("Comuniquese con el personal de sopore técnico", "Error!");        
+        $.growl({message:"Comuniquese con el personal de sopore técnico"},{type: "danger", allow_dismiss: true});       
     }
 };
 
@@ -23,11 +23,11 @@ var ManejoRespuestaProcesarDelPic = function(respuesta){
                 $("#usrUrlimage").val("");
             break;
             default:
-                toastr.error(res.des_code, "Error!");        
+                $.growl({message:res.des_code},{type: "danger", allow_dismiss: true});       
             break;
         } 
     }else{
-        toastr.error("Comuniquese con el personal de sopore técnico", "Error!");
+        $.growl({message:"Comuniquese con el personal de sopore técnico"},{type: "danger", allow_dismiss: true});       
     }
 }
 
@@ -41,11 +41,11 @@ var ManejoRespuestaProcesarUpPic = function(respuesta){
                 $("#usrUrlimage").val(res.des_code);
             break;
             default:
-                toastr.error(res.des_code, "Error!");
+                $.growl({message:res.des_code},{type: "danger", allow_dismiss: true});       
             break;
         } 
     }else{
-        toastr.error("Comuniquese con el personal de sopore técnico", "Error!");
+        $.growl({message:"Comuniquese con el personal de sopore técnico"},{type: "danger", allow_dismiss: true});       
     }
 }
 
