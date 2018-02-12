@@ -17,38 +17,38 @@
                     <div class="col-md-3"></div>
                     <div class="col-md-4">
                         <div class="row form-group">
-                            <label for="usrUserName">Login:</label>
-                            <span id="usrUserName" class="form-control input">Desconocido</span>
+                            <div class="md-input-wrapper">
+                                <input id="usrUserName" name="usrUserName" type="text" class="md-form-control md-valid" maxlength="50" readonly />
+                                <label for="usrUserName">Login</label>
+                            </div>
                         </div>
                         <br>
                         <div class="row form-group">
-                            <label for="usrNombreFull">Nombres:</label>
-                            {!! Form::text('usrNombreFull', '', [
-                            'id'            => 'usrNombreFull',
-                            'class'         => 'form-control input',
-                            'placeholder'   => 'Nombres',
-                            'style'         => 'width:100%;height:35px',
-                            'maxlength'     => '50'])!!}
+                            <div class="md-input-wrapper">
+                                <input id="usrNombreFull" name="usrNombreFull" type="text" class="md-form-control md-valid" maxlength="50" readonly />
+                                <label for="usrNombreFull">Nombres</label>
+                            </div>
                         </div>
                         <br>
                         <div class="row form-group">
-                            <label for="usrEmail">Email:</label>
-                            {!! Form::text('usrEmail', '', [
-                            'id'            => 'usrEmail',
-                            'class'         => 'form-control input',
-                            'placeholder'   => 'Email',
-                            'style'         => 'width:100%;height:35px',
-                            'maxlength'     => '50'])!!}
+                            <div class="md-input-wrapper">
+                                <input id="usrEmail" name="usrEmail" type="text" class="md-form-control md-valid" maxlength="50" readonly />
+                                <label for="usrEmail">Email</label>
+                            </div>
                         </div>
                         <br>
                         <div class="row form-group">
-                            <label for="usrUltimaVisita">Última visita:</label>
-                            <span id="usrUltimaVisita" class="form-control input">Desconocido</span>
+                            <div class="md-input-wrapper">
+                                <input id="usrUltimaVisita" name="usrUltimaVisita" type="text" class="md-form-control md-valid" maxlength="50" readonly />
+                                <label for="usrUltimaVisita">Última visita</label>
+                            </div>
                         </div>
                         <br>
                         <div class="row">
-                            <label for="auCreadoEl">Fecha de creación:</label>
-                            <span id="auCreadoEl" class="form-control input">Desconocido</span>
+                            <div class="md-input-wrapper">
+                                <input id="auCreadoEl" name="auCreadoEl" type="text" class="md-form-control md-valid" maxlength="50" readonly />
+                                <label for="auCreadoEl">Fecha de creación</label>
+                            </div>
                         </div>
                         <br>
                         <div align="center">
@@ -77,7 +77,7 @@
                                     @if ($avatar = 'default.jpg') @endif
                                     <input type="hidden" id="usrUrlimage" name="usrUrlimage">
                                     <div>
-                                        <img name="foto-perfil" id="foto-perfil" class="gavatar rounded-circle" alt="avatar" src='{!! asset("img/$avatar") !!}' height="120px">
+                                        <img name="foto-perfil" id="foto-perfil" class="gavatar rounded-circle" alt="" src='{!! asset("img/$avatar") !!}'>
                                     </div>
                                 </a>
                                 <br>
@@ -87,7 +87,7 @@
                                     <input type="file" name="foto" id="foto">
                                 </div>
                                 <br>
-                                 <label class="help-block">Archivo png o jpg no mayor a 2  megabytes (MB)</label>
+                                <label class="help-block">Archivo png o jpg no mayor a 2  megabytes (MB)</label>
                                 <br>
                                 <div>
                                     <button name="eliminar" id="eliminar" type="button" class="btn btn-default btn-icon waves-effect waves-light">

@@ -66,11 +66,7 @@
 						</div>
 						<div class="col-sm-4">
 	                        <div class="md-input-wrapper">
-								<select name="IdUltimoProveedor" id="IdUltimoProveedor" class="md-disable md-valid" disabled>
-									<option>Seleccione...</option>
-									<option value="1">proveedor 1</option>
-									<option value="1">proveedor 2</option>
-								</select>
+								<select name="IdUltimoProveedor" id="IdUltimoProveedor" class="md-disable md-valid" disabled></select>
                                 <label for="IdUltimoProveedor">Último proveedor</label>
 							</div>
 	                    </div>
@@ -97,11 +93,7 @@
 	                    </div>
 	                    <div class="col-sm-4">
 	                        <div class="md-input-wrapper">
-								<select name="SeCompra" id="SeCompra" class="md-disable md-valid" disabled>
-									<option>Seleccione...</option>
-									<option value="1">SI</option>
-									<option value="0">NO</option>
-								</select>
+								<select name="SeCompra" id="SeCompra" class="md-disable md-valid" disabled></select>
 	                            <label for="SeCompra">Se compra</label>
 							</div>
 	                    </div>
@@ -110,31 +102,19 @@
 					<div class="row">
 						<div class="col-sm-4">
 							<div class="md-input-wrapper">
-								<select name="SeVende" id="SeVende" class="md-disable md-valid" disabled>
-									<option>Seleccione...</option>
-									<option value="1">SI</option>
-									<option value="0">NO</option>
-								</select>
+								<select name="SeVende" id="SeVende" class="md-disable md-valid" disabled></select>
 	                            <label for="SeVende">Se Vende</label>
 							</div>
 						</div>
 						<div class="col-sm-4">
 	                        <div class="md-input-wrapper">
-								<select name="EsProductoCombo" id="EsProductoCombo" class="md-disable md-valid" disabled>
-									<option>Seleccione...</option>
-									<option value="1">SI</option>
-									<option value="2">NO</option>
-								</select>
+								<select name="EsProductoCombo" id="EsProductoCombo" class="md-disable md-valid" disabled></select>
                                 <label for="EsProductoCombo">Es combo</label>
 							</div>
 	                    </div>
 	                    <div class="col-sm-4">
 	                        <div class="md-input-wrapper">
-								<select name="Descontinuado" id="Descontinuado" class="md-disable md-valid" disabled>
-									<option>Seleccione...</option>
-									<option value="1">SI</option>
-									<option value="2">NO</option>
-								</select>
+								<select name="Descontinuado" id="Descontinuado" class="md-disable md-valid" disabled></select>
                                 <label for="Descontinuado">Producto Descontinuado</label>
 							</div>
 	                    </div>

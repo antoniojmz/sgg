@@ -297,13 +297,6 @@ var crearAllSelect = function(data){
 
 $(document).ready(function(){
     $("#spanTitulo").text("Bodegas registradas");
-    $("#RUT").focusout(function() {
-        var valid = $("#RUT").val();
-        if (valid.length > 0){
-            var res = verificarRut($("#RUT"));
-            $("#RUT").val(res);
-        }else{$("#ErrorRut").text("");}
-    });
     cargarTablaBodegas(d.v_bodegas);
     crearAllSelect(d);
     $(document).on('click','#guardar',validador);
@@ -316,7 +309,7 @@ $(document).ready(function(){
         excluded:[':disabled'],
         // message: 'El módulo le falta un campo para ser completado',
         fields: {
-            'RUT': {
+            'NombreBodega': {
                 verbose: false,
                 validators: {
                     notEmpty: {
@@ -324,7 +317,7 @@ $(document).ready(function(){
                     },
                 }
             }, 
-            'RazonSocial': {
+            'DescripcionBodega': {
                 verbose: false,
                 validators: {
                     notEmpty: {
@@ -332,30 +325,14 @@ $(document).ready(function(){
                     },
                 }
             },            
-            'NombreFantasia': {
+            'IdLocal': {
                 validators: {
                     notEmpty: {
                         message: 'El campo es requerido.'
                     }
                 }
             },
-            'Giro': {
-                verbose: false,
-                validators: {
-                    notEmpty: {
-                        message: 'El campo es requerido.'
-                    },
-                }
-            },
-            'IdRepresentanteLegal': {
-                verbose: false,
-                validators: {
-                    notEmpty: {
-                        message: 'El campo es requerido.'
-                    },
-                }
-            },
-            'EstadoEmpresa': {
+            'EstadoBodega': {
                 verbose: false,
                 validators: {
                     notEmpty: {

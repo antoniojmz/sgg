@@ -55,7 +55,7 @@ $nroPerfiles = Session::get('nroPerfiles');
                     $avatarUser = Auth::user()->usrUrlimage;
                     (strlen($avatarUser) > 10) ? $avatar=$avatarUser : $avatar="img/default.jpg";
                     @endphp
-                    <span><img class="rounded-circle gavatar" src="{{ asset($avatar) }}" style="width:40px;" alt="User Image"></span>
+                    <span><img class="rounded-circle avatar" src="{{ asset($avatar) }}" alt=""></span>
                     @if (isset($data))
                     @if (strlen($data['v_detalle'][0]->usrNombreFull)>1)
                     <span>

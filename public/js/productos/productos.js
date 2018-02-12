@@ -183,7 +183,6 @@ var pintarDatosActualizar= function(data){
     $("#IdFamilia").val(data.IdFamilia).trigger("change");
     $("#IdSubFamilia").val(data.IdSubFamilia).trigger("change");
     $("#IdUnidadMedida").val(data.IdUnidadMedida).trigger("change");
-    $("#EstadoBodega").val(data.EstadoBodega).trigger("change");
     $("#SeCompra").val(data.SeCompra).trigger("change");
     $("#SeVende").val(data.SeVende).trigger("change");
     $("#EsProductoCombo").val(data.EsProductoCombo).trigger("change");
@@ -273,8 +272,6 @@ var bloquearInuts = function(){
     $("#IdFamilia").prop('disabled', true);
     $("#IdSubFamilia").prop('disabled', true);
     $("#IdUnidadMedida").prop('disabled', true);
-    $("#EstadoBodega").prop('disabled', true);
-    $("#IdUltimoProveedor").prop('disabled', true);
     $("#SeCompra").prop('disabled', true);
     $("#SeVende").prop('disabled', true);
     $("#EsProductoCombo").prop('disabled', true);
@@ -297,7 +294,6 @@ var desbloquearInuts = function(){
     $("#IdFamilia").prop('disabled', false);
     $("#IdSubFamilia").prop('disabled', false);
     $("#IdUnidadMedida").prop('disabled', false);
-    $("#EstadoBodega").prop('disabled', false);
     $("#SeCompra").prop('disabled', false);
     $("#SeVende").prop('disabled', false);
     $("#EsProductoCombo").prop('disabled', false);
@@ -317,6 +313,14 @@ var volverTabs = function(){
 }
 
 var crearAllSelect = function(data){
+    var v_proveedor =[{"id":1,"text":"proveedor 1"},{"id":2,"text":"proveedor 2"}];
+    var secompra=[{"id":1,"text":"SI"},{"id":0,"text":"NO"}];  
+    var escombo=[{"id":1,"text":"SI"},{"id":2,"text":"NO"}];
+    crearselect(escombo,"Descontinuado");
+    crearselect(escombo,"EsProductoCombo");
+    crearselect(secompra,"SeVende");
+    crearselect(secompra,"SeCompra");
+    crearselect(v_proveedor,"IdUltimoProveedor");
     crearselect(data.v_familias,"IdFamilia");
     crearselect(data.v_subfamilias,"IdSubFamilia");
     crearselect(data.v_unidad,"IdUnidadMedida");
@@ -338,7 +342,7 @@ $(document).ready(function(){
         excluded:[':disabled'],
         // message: 'El módulo le falta un campo para ser completado',
         fields: {
-            'RUT': {
+            'CodigoBarra': {
                 verbose: false,
                 validators: {
                     notEmpty: {
@@ -346,7 +350,7 @@ $(document).ready(function(){
                     },
                 }
             }, 
-            'RazonSocial': {
+            'CodigoProveedor': {
                 verbose: false,
                 validators: {
                     notEmpty: {
@@ -354,14 +358,14 @@ $(document).ready(function(){
                     },
                 }
             },            
-            'NombreFantasia': {
+            'NombreProducto': {
                 validators: {
                     notEmpty: {
                         message: 'El campo es requerido.'
                     }
                 }
             },
-            'Giro': {
+            'DescripcionProducto': {
                 verbose: false,
                 validators: {
                     notEmpty: {
@@ -369,7 +373,7 @@ $(document).ready(function(){
                     },
                 }
             },
-            'IdRepresentanteLegal': {
+            'StockMinimo': {
                 verbose: false,
                 validators: {
                     notEmpty: {
@@ -377,7 +381,111 @@ $(document).ready(function(){
                     },
                 }
             },
-            'EstadoEmpresa': {
+            'StockMaximo': {
+                verbose: false,
+                validators: {
+                    notEmpty: {
+                        message: 'El campo es requerido.'
+                    },
+                }
+            },
+            'StockRecomendado': {
+                verbose: false,
+                validators: {
+                    notEmpty: {
+                        message: 'El campo es requerido.'
+                    },
+                }
+            },
+            'PrecioUltimaCompra': {
+                verbose: false,
+                validators: {
+                    notEmpty: {
+                        message: 'El campo es requerido.'
+                    },
+                }
+            },
+            'PrecioVentaSugerido': {
+                verbose: false,
+                validators: {
+                    notEmpty: {
+                        message: 'El campo es requerido.'
+                    },
+                }
+            },
+            'IdUltimoProveedor': {
+                verbose: false,
+                validators: {
+                    notEmpty: {
+                        message: 'El campo es requerido.'
+                    },
+                }
+            },
+            'IdFamilia': {
+                verbose: false,
+                validators: {
+                    notEmpty: {
+                        message: 'El campo es requerido.'
+                    },
+                }
+            },
+            'IdSubFamilia': {
+                verbose: false,
+                validators: {
+                    notEmpty: {
+                        message: 'El campo es requerido.'
+                    },
+                }
+            },
+            'IdUnidadMedida': {
+                verbose: false,
+                validators: {
+                    notEmpty: {
+                        message: 'El campo es requerido.'
+                    },
+                }
+            },
+            'SeCompra': {
+                verbose: false,
+                validators: {
+                    notEmpty: {
+                        message: 'El campo es requerido.'
+                    },
+                }
+            },
+            'SeVende': {
+                verbose: false,
+                validators: {
+                    notEmpty: {
+                        message: 'El campo es requerido.'
+                    },
+                }
+            },
+            'EsProductoCombo': {
+                verbose: false,
+                validators: {
+                    notEmpty: {
+                        message: 'El campo es requerido.'
+                    },
+                }
+            },
+            'Descontinuado': {
+                verbose: false,
+                validators: {
+                    notEmpty: {
+                        message: 'El campo es requerido.'
+                    },
+                }
+            },
+            'IdBodega': {
+                verbose: false,
+                validators: {
+                    notEmpty: {
+                        message: 'El campo es requerido.'
+                    },
+                }
+            },
+            'EstadoProducto': {
                 verbose: false,
                 validators: {
                     notEmpty: {

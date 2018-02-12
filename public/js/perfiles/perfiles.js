@@ -64,23 +64,23 @@ var pintarDatosActualizar= function(data){
         }
     }
     $("#idUser").val(data.idUser);
-    $("#usrUserName").text(data.usrUserName);
+    $("#usrUserName").val(data.usrUserName);
     $("#usrEmail").val(data.usrEmail);
     $("#usrNombreFull").val(data.usrNombreFull);
-    if(data.usrUltimaVisita!=null){$("#usrUltimaVisita").text(data.usrUltimaVisita);}
-    if(data.auCreadoEl!=null){$("#auCreadoEl").text(data.auCreadoEl);}
+    if(data.usrUltimaVisita!=null){$("#usrUltimaVisita").val(data.usrUltimaVisita);}
+    if(data.auCreadoEl!=null){$("#auCreadoEl").val(data.auCreadoEl);}
 }
 
 var BotonCancelar = function(){
-    $(".divBotonera").toggle(); 
-    $('.input').prop('disabled', true);
-    $('.input').addClass('spanDisable');
+    $(".divBotonera").toggle();
+    $("#usrNombreFull").prop('readonly', true);
+    $("#usrEmail").prop('readonly', true);
 }
 
 var BotonModificar = function(){
     $(".divBotonera").toggle(); 
-    $('.input').prop('disabled', false);
-    $('.input').removeClass('spanDisable');
+    $("#usrNombreFull").prop('readonly', false);
+    $("#usrEmail").prop('readonly', false);
 }
 
 var validador = function(){

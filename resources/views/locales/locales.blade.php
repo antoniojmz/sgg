@@ -61,11 +61,7 @@
 						<div class="col-sm-2"></div>
 						<div class="col-sm-4">
 	                        <div class="md-input-wrapper">
-								<select name="IdEncargadoLocal" id="IdEncargadoLocal" class="md-disable md-valid" disabled>
-                                    <option>Seleccione...</option>
-                                    <option value="1">Encargado 1</option>
-                                    <option value="2">Encargado 2</option>
-                                </select>
+								<select name="IdEncargadoLocal" id="IdEncargadoLocal" class="md-disable md-valid" disabled></select>
                                 <label for="IdEncargadoLocal">Encargado</label>
 							</div>
 	                    </div>
@@ -154,11 +150,7 @@
 											<div class="col-sm-2"></div>
 											<div class="col-sm-4">
 						                        <div class="md-input-wrapper">
-													<select name="IdEncargadoLocald" id="IdEncargadoLocald" class="md-disable md-valid" disabled>
-					                                    <option>Seleccione...</option>
-					                                    <option value="1">Encargado 1</option>
-					                                    <option value="2">Encargado 2</option>
-					                                </select>
+													<select name="IdEncargadoLocald" id="IdEncargadoLocald" class="md-disable md-valid" disabled></select>
 					                                <label for="IdEncargadoLocal">Encargado</label>
 												</div>
 						                    </div>

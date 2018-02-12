@@ -64,6 +64,7 @@ class Producto extends Authenticatable
 
     // registrar una nueva producto
     public function regBodega($datos){
+        log::info($datos);
         $idAdmin = Auth::id();
         $datos['IdProducto']==null ? $Id=0 : $Id= $datos['IdProducto'];
         $sql="select f_registro_producto(".$Id.",'".$datos['CodigoBarra']."','".$datos['CodigoProveedor']."','".$datos['NombreProducto']."','".$datos['DescripcionProducto']."',".$datos['IdUltimoProveedor'].",".$datos['IdFamilia'].",".$datos['IdSubFamilia'].",".$datos['IdUnidadMedida'].",".$datos['SeCompra'].",".$datos['SeVende'].",".$datos['EsProductoCombo'].",".$datos['Descontinuado'].",".$datos['StockMinimo'].",".$datos['StockMaximo'].",".$datos['StockRecomendado'].",'".$datos['PrecioUltimaCompra']."','".$datos['PrecioVentaSugerido']."',".$datos['IdBodega'].",".$datos['EstadoProducto'].",".$idAdmin.")";

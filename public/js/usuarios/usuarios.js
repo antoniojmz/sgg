@@ -262,10 +262,10 @@ var seleccionarTablaPerfiles = function(data){
     });
 }; 
 
-// var crearallcombos = function(data){
-//     crearcombo('#idPerfil',data.v_perfiles);
-//     crearcombo('#usrEstado',data.v_estados);
-// }
+var crearallSelect = function(data){
+    crearselect(data.v_perfiles,'idPerfil');
+    crearselect(data.v_estados,'usrEstado',);
+}
 
 var cargarFormulario= function(){
     $(".divForm").toggle();
@@ -461,7 +461,7 @@ $(document).ready(function(){
         }else{$("#ErrorRut").text("");}
     });
     cargarTablaUsuarios(d.v_usuarios);
-    // crearallcombos(d);    
+    crearallSelect(d);    
     $(document).on('click','#guardar',validador);
     $(document).on('click','#cancelar',BotonCancelar);
     $(document).on('click','#agregar',BotonAgregar);

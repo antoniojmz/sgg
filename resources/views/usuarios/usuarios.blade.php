@@ -97,21 +97,13 @@
 						<div class="col-sm-2"></div>
 						<div class="col-sm-4">
 							<div class="md-input-wrapper">
-                                <select name="usrEstado" id="usrEstado" class="md-disable md-valid" disabled>
-                                    <option>Seleccione...</option>
-                                    <option value="0">Inactivo</option>
-                                    <option value="1">Activo</option>
-                                </select>
+                                <select name="usrEstado" id="usrEstado" class="md-disable md-valid" disabled></select>
                                 <label for="">Estado</label>
                             </div>
 						</div>
 						<div class="col-sm-4">
 	                        <div class="md-input-wrapper">
-	                         	<select name="idPerfil" id="idPerfil" class="md-disable md-valid" disabled>
-                                    <option>Seleccione...</option>
-                                    <option value="1">Administrador</option>
-                                    <option value="2">Usuario</option>
-                                </select>
+	                         	<select name="idPerfil" id="idPerfil" class="md-disable md-valid" disabled></select>
                                 <label for="idPerfil">Perfíl</label>
 							</div>
 						</div>
@@ -121,10 +113,6 @@
 						<div class="row">
 							<div class="col-md-2"></div>
 							<div class="col-md-4" id="divSpanPerfiles" style="display:none;">
-								<!-- <div class="md-input-wrapper">
-									<input id="perfiles" name="perfiles" type="text" class="md-form-control md-valid" maxlength="50" readonly />
-									<label for="perfiles">Perfiles:</label>
-								</div> -->
 								<div class="md-input-wrapper">
 									<input id="usrUltimaVisita" name="usrUltimaVisita" type="text" class="md-form-control md-valid" maxlength="50" readonly />
 									<label for="usrUltimaVisita">Última visita:</label>

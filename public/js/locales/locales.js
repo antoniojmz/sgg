@@ -146,11 +146,6 @@ var cargarTablaBodegas = function(data){
         limpiarBodegas=1; 
 };
 
-// var crearallcombos = function(data){
-//     crearcombo('#idPerfil',data.v_perfiles);
-//     crearcombo('#usrEstado',data.v_estados);
-// }
-
 var cargarFormulario= function(){
     $(".divForm").toggle();
 }
@@ -276,6 +271,9 @@ var volverTabs = function(){
 }
 
 var crearAllSelect = function(data){
+    var encargado =[{"id":"1","text":"Encargado 1"},{"id":"2","text":"Encargado 2"}];
+    crearselect(encargado,"IdEncargadoLocal");
+    crearselect(encargado,"IdEncargadoLocald");
     crearselect(data.v_empresas,"IdEmpresa");
     crearselect(data.v_estados,"EstadoLocal");
     crearselect(data.v_empresas,"IdEmpresad");
@@ -284,13 +282,6 @@ var crearAllSelect = function(data){
 
 $(document).ready(function(){
     $("#spanTitulo").text("Locales registrados");
-    $("#RUT").focusout(function() {
-        var valid = $("#RUT").val();
-        if (valid.length > 0){
-            var res = verificarRut($("#RUT"));
-            $("#RUT").val(res);
-        }else{$("#ErrorRut").text("");}
-    });
     cargarTablaLocales(d.v_locales);
     crearAllSelect(d);
     $(document).on('click','#guardar',validador);
@@ -303,7 +294,7 @@ $(document).ready(function(){
         excluded:[':disabled'],
         // message: 'El módulo le falta un campo para ser completado',
         fields: {
-            'RUT': {
+            'NombreLocal': {
                 verbose: false,
                 validators: {
                     notEmpty: {
@@ -311,7 +302,7 @@ $(document).ready(function(){
                     },
                 }
             }, 
-            'RazonSocial': {
+            'IdEmpresa': {
                 verbose: false,
                 validators: {
                     notEmpty: {
@@ -319,30 +310,14 @@ $(document).ready(function(){
                     },
                 }
             },            
-            'NombreFantasia': {
+            'IdEncargadoLocal': {
                 validators: {
                     notEmpty: {
                         message: 'El campo es requerido.'
                     }
                 }
             },
-            'Giro': {
-                verbose: false,
-                validators: {
-                    notEmpty: {
-                        message: 'El campo es requerido.'
-                    },
-                }
-            },
-            'IdRepresentanteLegal': {
-                verbose: false,
-                validators: {
-                    notEmpty: {
-                        message: 'El campo es requerido.'
-                    },
-                }
-            },
-            'EstadoEmpresa': {
+            'EstadoLocal': {
                 verbose: false,
                 validators: {
                     notEmpty: {

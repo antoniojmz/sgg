@@ -19,7 +19,15 @@
 }
 #toolMantencion{
 	margin-top: 150px !important;
+}
+.gavatar{
+	width: 150px;
+	height: 150px;
 }	
+.avatar{
+	width: 40px;
+	height: 40px;
+}
 
 @media screen and (max-width:992px){
 	.SpanTitulo{

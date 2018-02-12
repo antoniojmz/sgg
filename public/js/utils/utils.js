@@ -57,7 +57,8 @@ var crearfecha = function(control){
 
 //////////////////////////////////////crear select original HTML /////////////////////////////////////////////////////
 var crearselect = function(data,control){
-    var options = '<option>Seleccione...</option>';
+    var options = '<option disabled selected hidden>Seleccione...</option>';
+    // var options = '';
     for (var i = 0; i < data.length; i++) {
         options += '<option value="' + data[i].id + '">' + data[i].text + '</option>';
     }
