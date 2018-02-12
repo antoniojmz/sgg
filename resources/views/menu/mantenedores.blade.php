@@ -1,7 +1,7 @@
 <style type="text/css" media="screen">
 .users-main{
 	all: unset;
-	height: 450px;	
+	height: 482px;	
 }	
 </style>
 <div class="col-md-2">
@@ -9,7 +9,7 @@
 		<div class="card-header">
 			<center>
 				<h5 class="card-header-text">
-					Listado de Mantenedores
+					Mantenedores
 				</h5>
 			</center>
 		</div>
@@ -55,6 +55,11 @@
 						<li>
 			             	<a class="waves-effect" href="{{ route('impuestos') }}">
 			                	<u>Impuestos</u>
+			              	</a>
+			            </li>
+			            <li>
+			             	<a class="waves-effect" href="{{ route('productos') }}">
+			                	<u>Productos</u>
 			              	</a>
 			            </li>
 					</ul>

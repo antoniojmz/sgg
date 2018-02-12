@@ -479,8 +479,12 @@
                 Impuestos
               </a>
             </li>
-
-            
+            <li>
+              <a class="waves-effect" href="{{ route('productos') }}">
+                <i class="icon-arrow-right"></i>
+                Productos
+              </a>
+            </li>
           </ul>
         </li>
       </ul>

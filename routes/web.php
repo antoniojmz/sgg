@@ -58,10 +58,10 @@ Route::post('/impuestos', 'ImpuestoController@postImpuesto')->name('impuestos');
 Route::post('/activarI', 'ImpuestoController@postImpuestoactivo')->name('activarI');
 
 //CRUD Productos
-Route::get('/productos', 'ProductoController@getBodega')->name('productos');
-Route::post('/productos', 'ProductoController@postBodega')->name('productos');
-Route::post('/activarPr', 'ProductoController@postBodegactivo')->name('activarPr');
-Route::post('/detallesPr', 'ProductoController@postBodegadetalle')->name('detallesPr');
+Route::get('/productos', 'ProductoController@getProducto')->name('productos');
+Route::post('/productos', 'ProductoController@postProducto')->name('productos');
+Route::post('/activarPr', 'ProductoController@postProductoactivo')->name('activarPr');
+Route::post('/detallesPr', 'ProductoController@postProductodetalle')->name('detallesPr');
 
 Route::group(['namespace' => 'Auth', 'prefix' => 'admin'], function (){
 	//accesos (Seleccionar acceso para ingresar a la aplicacion)

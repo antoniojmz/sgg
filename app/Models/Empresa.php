@@ -33,7 +33,7 @@ class Empresa extends Authenticatable
         'auFechaModificacion','auFechaCreacion'
     ];
 
-    // Cargar combo de perfiles de empresa
+    // Cargar tabla de empresa
     public function listEmpresa(){
         return DB::table('v_empresas')->get();
     }
