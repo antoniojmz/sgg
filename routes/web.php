@@ -61,6 +61,7 @@ Route::post('/activarI', 'ImpuestoController@postImpuestoactivo')->name('activar
 Route::get('/productos', 'ProductoController@getProducto')->name('productos');
 Route::post('/productos', 'ProductoController@postProducto')->name('productos');
 Route::post('/activarPr', 'ProductoController@postProductoactivo')->name('activarPr');
+Route::post('/descontinuarPr', 'ProductoController@postProductodescontinuar')->name('descontinuarPr');
 Route::post('/detallesPr', 'ProductoController@postProductodetalle')->name('detallesPr');
 
 Route::group(['namespace' => 'Auth', 'prefix' => 'admin'], function (){

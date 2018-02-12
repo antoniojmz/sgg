@@ -1,10 +1,5 @@
 @extends('menu.index')
 @section('content')
-<style type="text/css" media="screen">
-	.nav-tabs .slide{
-		 width: calc(100% / 2)!important;
-	}
-</style>
 <div class="row">
 	@include('menu.mantenedores')
 	<div class="col-md-10 divDetalles">
@@ -41,10 +36,6 @@
 					'id'            => 'IdProducto',
 					'class'         => 'form-control'])!!}
 					<input type="hidden" name="_token" id="_token" value="{!! csrf_token() !!}">
-					
-
-
-
 					<div class="row">
 						<div class="col-sm-4">
 							<div class="md-input-wrapper">
@@ -60,18 +51,16 @@
 	                    </div>
 	                    <div class="col-sm-4">
 	                        <div class="md-input-wrapper">
-								<input id="NombreProducto" name="NombreProducto" type="text" class="md-form-control" maxlength="20" readonly />
+								<input id="NombreProducto" name="NombreProducto" type="text" class="md-form-control" maxlength="250" readonly />
 								<label for="NombreProducto">Nombre Producto</label>
 							</div>
 	                    </div>
 					</div>
 					<br>
-
-
 					<div class="row">
 						<div class="col-sm-4">
 							<div class="md-input-wrapper">
-								<input id="DescripcionProducto" name="DescripcionProducto" type="text" class="md-form-control" maxlength="20" readonly />
+								<input id="DescripcionProducto" name="DescripcionProducto" type="text" class="md-form-control" maxlength="250" readonly />
 								<label for="DescripcionProducto">Descripción Producto</label>
 							</div>
 						</div>
@@ -93,10 +82,6 @@
 	                    </div>
 					</div>
 					<br>
-
-
-
-
 					<div class="row">
 						<div class="col-sm-4">
 							<div class="md-input-wrapper">
@@ -112,117 +97,94 @@
 	                    </div>
 	                    <div class="col-sm-4">
 	                        <div class="md-input-wrapper">
-								<select name="EstadoBodega" id="EstadoBodega" class="md-disable md-valid" disabled></select>
-                                <label for="EstadoBodega">Estado</label>
-							</div>
-	                    </div>
-					</div>
-					<br>
-
-
-
-
-
-					<div class="row">
-						<div class="col-sm-4">
-							<div class="md-input-wrapper">
 								<select name="SeCompra" id="SeCompra" class="md-disable md-valid" disabled>
 									<option>Seleccione...</option>
 									<option value="1">SI</option>
 									<option value="0">NO</option>
 								</select>
-                                <label for="SeCompra">Se compra</label>
+	                            <label for="SeCompra">Se compra</label>
 							</div>
-						</div>
+	                    </div>
+					</div>
+					<br>
+					<div class="row">
 						<div class="col-sm-4">
-	                        <div class="md-input-wrapper">
+							<div class="md-input-wrapper">
 								<select name="SeVende" id="SeVende" class="md-disable md-valid" disabled>
 									<option>Seleccione...</option>
 									<option value="1">SI</option>
 									<option value="0">NO</option>
 								</select>
-                                <label for="SeVende">Se Vende</label>
+	                            <label for="SeVende">Se Vende</label>
 							</div>
-	                    </div>
-	                    <div class="col-sm-4">
+						</div>
+						<div class="col-sm-4">
 	                        <div class="md-input-wrapper">
 								<select name="EsProductoCombo" id="EsProductoCombo" class="md-disable md-valid" disabled>
 									<option>Seleccione...</option>
 									<option value="1">SI</option>
 									<option value="2">NO</option>
 								</select>
-                                <label for="EsProductoCombo">Estado</label>
+                                <label for="EsProductoCombo">Es combo</label>
 							</div>
 	                    </div>
-					</div>
-					<br>
-
-
-
-
-
-					<div class="row">
-						<div class="col-sm-4">
-							<div class="md-input-wrapper">
+	                    <div class="col-sm-4">
+	                        <div class="md-input-wrapper">
 								<select name="Descontinuado" id="Descontinuado" class="md-disable md-valid" disabled>
 									<option>Seleccione...</option>
 									<option value="1">SI</option>
 									<option value="2">NO</option>
 								</select>
-                                <label for="Descontinuado">Local</label>
+                                <label for="Descontinuado">Producto Descontinuado</label>
 							</div>
-						</div>
+	                    </div>
+					</div>
+					<br>
+					<div class="row">
 						<div class="col-sm-4">
-	                        <div class="md-input-wrapper">
+							<div class="md-input-wrapper">
 								<input id="StockMinimo" name="StockMinimo" type="text" class="md-form-control" maxlength="5" readonly />
 								<label for="StockMinimo">Stock Minimo</label>
 							</div>
-	                    </div>
-	                    <div class="col-sm-4">
+						</div>
+						<div class="col-sm-4">
 	                        <div class="md-input-wrapper">
 								<input id="StockMaximo" name="StockMaximo" type="text" class="md-form-control" maxlength="5" readonly />
 								<label for="StockMaximo">Stock Maximo</label>
 							</div>
 	                    </div>
+	                    <div class="col-sm-4">
+	                        <div class="md-input-wrapper">
+								<input id="StockRecomendado" name="StockRecomendado" type="text" class="md-form-control" maxlength="5" readonly />
+								<label for="StockRecomendado">Stock Recomendado</label>
+							</div>
+	                    </div>
 					</div>
 					<br>
-
-
-
-
 					<div class="row">
 						<div class="col-sm-4">
 							<div class="md-input-wrapper">
-								<input id="StockRecomendado" name="StockRecomendado" type="text" class="md-form-control" maxlength="5" readonly />
-								<label for="StockRecomendado">Stock Recomendado</label>
+								<input id="PrecioUltimaCompra" name="PrecioUltimaCompra" type="text" class="md-form-control" maxlength="15" readonly />
+								<label for="PrecioUltimaCompra">Precio Ultima Compra</label>
 							</div>
 						</div>
 						<div class="col-sm-4">
 	                        <div class="md-input-wrapper">
-								<input id="PrecioUltimaCompra" name="PrecioUltimaCompra" type="text" class="md-form-control" maxlength="5" readonly />
-								<label for="PrecioUltimaCompra">Precio Ultima Compra</label>
-							</div>
-	                    </div>
-	                    <div class="col-sm-4">
-	                        <div class="md-input-wrapper">
-								<input id="PrecioVentaSugerido" name="PrecioVentaSugerido" type="text" class="md-form-control" maxlength="5" readonly />
+								<input id="PrecioVentaSugerido" name="PrecioVentaSugerido" type="text" class="md-form-control" maxlength="15" readonly />
 								<label for="PrecioVentaSugerido">Precio Venta Sugerido</label>
 							</div>
 	                    </div>
-					</div>
-					<br>
-
-
-
-					<div class="row">
-						<div class="col-sm-2"></div>
-						<div class="col-sm-4">
+	                    <div class="col-sm-4">
 	                        <div class="md-input-wrapper">
 								<select name="IdBodega" id="IdBodega" class="md-disable md-valid" disabled></select>
                                 <label for="IdBodega">Bodega</label>
 							</div>
 	                    </div>
-	                    <div class="col-sm-4">
+					</div>
+					<br>
+					<div class="row">
+						<div class="col-sm-4"></div>
+						<div class="col-sm-4">
 	                        <div class="md-input-wrapper">
 								<select name="EstadoProducto" id="EstadoProducto" class="md-disable md-valid" disabled></select>
                                 <label for="EstadoProducto">Estado Producto</label>
@@ -230,8 +192,6 @@
 	                    </div>
 					</div>
 					<br>
-
-
 					<div align="center">
 						<div class="pull-rigth">
 							<div id="divBtnModificar">
@@ -267,27 +227,45 @@
 		                <div class="product-edit">
 		                    <ul class="nav nav-tabs nav-justified md-tabs " role="tablist">
 		                        <li class="nav-item">
-		                            <a class="nav-link active" data-toggle="tab" href="#detalles" role="tab">
+		                            <a class="nav-link active" data-toggle="tab" href="#TabReceta" role="tab">
 		                                <div class="f-26">
 		                                    <i class="icofont icofont-document-search"></i>
 		                                </div>
-		                                Detalles de Bodega
+		                                Receta
 		                            </a>
 		                            <div class="slide"></div>
 		                        </li>
 		                        <li class="nav-item">
-		                            <a class="nav-link" data-toggle="tab" href="#productos" role="tab">
+		                            <a class="nav-link" data-toggle="tab" href="#TabImpuestos" role="tab">
 		                                <div class="f-26">
 		                                    <i class="icofont icofont-document-search"></i>
 		                                </div>
-		                                Productos Asociados
+		                                Impuestos
+		                           	</a>
+		                            <div class="slide"></div>
+		                        </li>
+		                        <li class="nav-item">
+		                            <a class="nav-link" data-toggle="tab" href="#TabStock" role="tab">
+		                                <div class="f-26">
+		                                    <i class="icofont icofont-document-search"></i>
+		                                </div>
+		                                Stock
+		                           	</a>
+		                            <div class="slide"></div>
+		                        </li>
+		                        <li class="nav-item">
+		                            <a class="nav-link" data-toggle="tab" href="#TabKardex" role="tab">
+		                                <div class="f-26">
+		                                    <i class="icofont icofont-document-search"></i>
+		                                </div>
+		                                Kardex
 		                           	</a>
 		                            <div class="slide"></div>
 		                        </li>
 		                    </ul>
 		                    <!-- Tab panes -->
 		                    <div class="tab-content">
-		                        <div class="tab-pane active" id="detalles" role="tabpanel">
+		                        <div class="tab-pane active" id="TabReceta" role="tabpanel">
 		                            <form class="md-float-material card-block">
 										<div class="row">
 											<div class="col-sm-2"></div>
@@ -322,12 +300,31 @@
 										</div>
 		                            </form>
 		                        </div>
-		                        <div class="tab-pane" id="productos" role="tabpanel">
-									<div class="row">
-										<div class="col-md-12 table-responsive">
-											<table id="tablaProductoslfkjgkl" class="table table-striped dt-responsive nowrap table-hover" cellspacing="0" width="100%"></table>
-										</div>
-									</div>
+		                        <div class="tab-pane" id="TabImpuestos" role="tabpanel">
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+									tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+									quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+									consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+									cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+									proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		                        </div>
+		                        <div class="tab-pane" id="TabStock" role="tabpanel">
+		                        	222222222222222222222222222222222222222222222222222222222222222222
+		                        	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		                        	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		                        	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		                        	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		                        	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		                        	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		                        </div>
+		                        <div class="tab-pane" id="TabKardex" role="tabpanel">
+		                        	333333333333333333333333333333333333333333333333333333333333333333333
+		                        	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		                        	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		                        	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		                        	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		                        	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		                        	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 		                        </div>
 		                        <div class="text-center">
 		                            <button id="btn-volver" type="button" class="btn btn-inverse-primary waves-effect waves-light m-r-10">
@@ -346,6 +343,7 @@
 	var ruta = "{{ URL::route('productos') }}"
 	var rutaA = "{{ URL::route('activarPr') }}"
 	var rutaD = "{{ URL::route('detallesPr') }}"
+	var rutaDes = "{{ URL::route('descontinuarPr') }}"
 	var d = [];
 	d['v_productos'] = JSON.parse(rhtmlspecialchars('{{ json_encode($v_productos) }}'));
 	d['v_estados'] = JSON.parse(rhtmlspecialchars('{{ json_encode($v_estados) }}'));

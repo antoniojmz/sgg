@@ -10,16 +10,18 @@ var parametroAjax = {
 };
 
 var ManejoRespuestaProcesarD = function(respuesta){
-    if(respuesta.code==200){
+    console.log(respuesta);
+    console.log(respuesta.respuesta);
+    // if(respuesta.code==200){
         $(".divDetalles").toggle();
-        pintarDatosDetalles(respuesta.respuesta.v_detalles[0]);
-        cargarTablaProductos(respuesta.respuesta.v_productos);
-    }else{
-        $.growl({message:"Contacte al personal informatico"},{type: "danger", allow_dismiss: true,});       
-    }
+        // pintarDatosDetalles(respuesta.respuesta.v_detalles[0]);
+        // cargarTablaProductos(respuesta.respuesta.v_productos);
+    // }else{
+        // $.growl({message:"Contacte al personal informatico"},{type: "danger", allow_dismiss: true,});       
+    // }
 
 }
-// Manejo Activar / Desactivar empresa
+// Manejo Activar / Desactivar empresa  
 var ManejoRespuestaProcesarI = function(respuesta){
     if(respuesta.code==200){
         if(respuesta.respuesta.activar>0){
@@ -35,20 +37,33 @@ var ManejoRespuestaProcesarI = function(respuesta){
     }
 }
 
+// Manejo respuesta descontinuar Producto
+var ManejoRespuestaProcesarDescontinuar = function(respuesta){
+    if(respuesta.code==200){
+        if(respuesta.respuesta.descontinuar>0){
+            if(respuesta.respuesta.v_productos.length>0){
+                $.growl({message:"Procesado"},{type: "success", allow_dismiss: true,});
+                cargarTablaProductos(respuesta.respuesta.v_productos);
+            }
+        }else{
+            $.growl({message:"Debe seleccionar un registro"},{type: "warning", allow_dismiss: true,});
+        }
+    }else{
+        $.growl({message:"Contacte al personal informatico"},{type: "danger", allow_dismiss: true,});
+    }
+}
+
 // Manejo Registro o actualizacion de empresa
 var ManejoRespuestaProcesar = function(respuesta){
-    console.log(respuesta);
-    console.log(respuesta.respuesta);
-    console.log(respuesta.respuesta.f_registro);
     if(respuesta.code==200){
-        var res = JSON.parse(respuesta.respuesta.f_registro.f_registro_bodega);
+        var res = JSON.parse(respuesta.respuesta.f_registro.f_registro_producto);
         switch(res.code) {
             case '200':
                 $.growl({message:res.des_code},{type: "success", allow_dismiss: true,});
                 $(".divForm").toggle();
                 $('#FormProducto')[0].reset();
-                $('#IdLocal').val("");
-                cargarTablaProductos(respuesta.respuesta.v_bodegas);
+                $('#IdProducto').val("");
+                cargarTablaProductos(respuesta.respuesta.v_productos);
                 break;
             case '-2':
                 $.growl({message:res.des_code},{type: "warning", allow_dismiss: true,});
@@ -112,11 +127,14 @@ var cargarTablaProductos = function(data){
                 "render": function(data, type, row, meta){
                     var result = `
                     <center>
-                    <a href="#" onclick="verDetallesBodega(`+data+`);" class="text-muted" data-toggle="tooltip" data-placement="top" title="Ver Detalles" data-original-title="Delete">
+                    <a href="#" onclick="verDetallesProducto(`+data+`);" class="text-muted" data-toggle="tooltip" data-placement="top" title="Ver Detalles" data-original-title="Delete">
                         <i class="icofont icofont-search"></i>
                     </a>
-                    <a href="#" onclick="cambiarEstatusLocal(`+data+`);" class="text-muted" data-toggle="tooltip" data-placement="top" title="Activar / Desactivar" data-original-title="Delete">
+                    <a href="#" onclick="cambiarEstatusProducto(`+data+`);" class="text-muted" data-toggle="tooltip" data-placement="top" title="Activar / Desactivar" data-original-title="Delete">
                         <i class="icofont icofont-ui-delete"></i>
+                    </a>
+                    <a href="#" onclick="descontinuarProducto(`+data+`);" class="text-muted" data-toggle="tooltip" data-placement="top" title="Descontinuar Producto" data-original-title="Delete">
+                        <i class="icofont icofont-close"></i>
                     </a>
                     </center>`;
                     return result; 
@@ -152,10 +170,26 @@ var pintarDatosActualizar= function(data){
     $(".md-form-control").addClass("md-valid");
     $("#spanTitulo").text("Editar Producto");
     $("#IdProducto").val(data.IdProducto);
-    $("#NombreBodega").val(data.NombreBodega);
-    $("#DescripcionBodega").val(data.DescripcionBodega);
-    $("#IdLocal").val(data.IdLocal).trigger("change");
+    $("#CodigoBarra").val(data.CodigoBarra);
+    $("#CodigoProveedor").val(data.CodigoProveedor);
+    $("#NombreProducto").val(data.NombreProducto);
+    $("#DescripcionProducto").val(data.DescripcionProducto);
+    $("#StockMinimo").val(data.StockMinimo);
+    $("#StockMaximo").val(data.StockMaximo);
+    $("#StockRecomendado").val(data.StockRecomendado);
+    $("#PrecioUltimaCompra").val(data.PrecioUltimaCompra);
+    $("#PrecioVentaSugerido").val(data.PrecioVentaSugerido);
+    $("#IdUltimoProveedor").val(data.IdUltimoProveedor).trigger("change");
+    $("#IdFamilia").val(data.IdFamilia).trigger("change");
+    $("#IdSubFamilia").val(data.IdSubFamilia).trigger("change");
+    $("#IdUnidadMedida").val(data.IdUnidadMedida).trigger("change");
     $("#EstadoBodega").val(data.EstadoBodega).trigger("change");
+    $("#SeCompra").val(data.SeCompra).trigger("change");
+    $("#SeVende").val(data.SeVende).trigger("change");
+    $("#EsProductoCombo").val(data.EsProductoCombo).trigger("change");
+    $("#Descontinuado").val(data.Descontinuado).trigger("change");
+    $("#IdBodega").val(data.IdBodega).trigger("change");
+    $("#EstadoProducto").val(data.EstadoProducto).trigger("change");
 }
 
 var pintarDatosDetalles = function(data){
@@ -163,7 +197,7 @@ var pintarDatosDetalles = function(data){
     $("#IdProductod").val(data.IdProducto);
     $("#NombreBodegad").val(data.NombreBodega);
     $("#DescripcionBodegad").val(data.DescripcionBodega);
-    $("#IdLocald").val(data.IdLocal).trigger("change");
+    $("#IdProductod").val(data.IdProducto).trigger("change");
     $("#EstadoBodegad").val(data.EstadoBodega).trigger("change");
 }
 
@@ -193,12 +227,8 @@ var BotonAgregar = function(){
 
 var ProcesarProducto = function(){
     if (errorRut==0){  
-        var camposNuevo = {
-            'IdLocal': $('#IdLocal').val(), 
-            'EstadoBodega': $('#EstadoBodega').val()
-        }
         parametroAjax.ruta=ruta;
-        parametroAjax.data = $("#FormProducto").serialize() + '&' + $.param(camposNuevo);
+        parametroAjax.data = $("#FormProducto").serialize();
         respuesta=procesarajax(parametroAjax);
         ManejoRespuestaProcesar(respuesta);
     }
@@ -208,14 +238,21 @@ var validador = function(){
     $('#FormProducto').formValidation('validate');
 };
 
-var cambiarEstatusLocal = function(IdProducto){
+var cambiarEstatusProducto = function(IdProducto){
     parametroAjax.ruta=rutaA;
     parametroAjax.data = {IdProducto:IdProducto};
     respuesta=procesarajax(parametroAjax);
     ManejoRespuestaProcesarI(respuesta);
 }
 
-var verDetallesBodega = function(IdProducto){
+var descontinuarProducto = function(IdProducto){
+    parametroAjax.ruta=rutaDes;
+    parametroAjax.data = {IdProducto:IdProducto};
+    respuesta=procesarajax(parametroAjax);
+    ManejoRespuestaProcesarDescontinuar(respuesta);   
+}
+
+var verDetallesProducto = function(IdProducto){
     parametroAjax.ruta=rutaD;
     parametroAjax.data = {IdProducto:IdProducto};
     respuesta=procesarajax(parametroAjax);
@@ -280,16 +317,17 @@ var volverTabs = function(){
 }
 
 var crearAllSelect = function(data){
-    crearselect(data.v_locales,"IdLocal");
-    crearselect(data.v_estados,"EstadoBodega");
-    crearselect(data.v_locales,"IdLocald");
-    crearselect(data.v_estados,"EstadoBodegad");
+    crearselect(data.v_familias,"IdFamilia");
+    crearselect(data.v_subfamilias,"IdSubFamilia");
+    crearselect(data.v_unidad,"IdUnidadMedida");
+    crearselect(data.v_bodegas,"IdBodega");
+    crearselect(data.v_estados,"EstadoProducto");    
 }
 
 $(document).ready(function(){
     $("#spanTitulo").text("Productos registrados");
     cargarTablaProductos(d.v_productos);
-    // crearAllSelect(d);
+    crearAllSelect(d);
     $(document).on('click','#guardar',validador);
     $(document).on('click','#cancelar',BotonCancelar);
     $(document).on('click','#agregar',BotonAgregar);

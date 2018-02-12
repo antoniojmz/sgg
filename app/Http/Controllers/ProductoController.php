@@ -67,7 +67,17 @@ class ProductoController extends Controller
         $datos = $request->all();
         $model= new Producto();
         $bodega = Producto::find($datos['IdProducto']);
-        $result['activar'] = $model->activarBodega($bodega);
+        $result['activar'] = $model->activarProducto($bodega);
+        $result['v_productos'] = $model->listProductos();
+        return $result;
+    }
+
+    // Descontiniar producto
+    protected function postProductodescontinuar (Request $request){
+        $datos = $request->all();
+        $model= new Producto();
+        $bodega = Producto::find($datos['IdProducto']);
+        $result['descontinuar'] = $model->descontinuarProducto($bodega);
         $result['v_productos'] = $model->listProductos();
         return $result;
     }
@@ -75,10 +85,13 @@ class ProductoController extends Controller
     // Ver detalles de los productos
     protected function postProductodetalle (Request $request){
         $datos = $request->all();
-        $model= new Producto();
-        $result['v_detalles'] = $model->getOneDetalle($datos['IdProducto']);
-        $result['v_productos'] = $model->localesProducto($datos['IdProducto']);
+        // $model= new Producto();
+        // $result['v_detalles'] = $model->getOneDetalle($datos['IdProducto']);
+        // $result['v_productos'] = $model->localesProducto($datos['IdProducto']);
+        $result = '';
         return $result;
     }
+
+
 
 }

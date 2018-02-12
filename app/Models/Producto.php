@@ -62,25 +62,37 @@ class Producto extends Authenticatable
         return DB::table('v_bodegas_combo')->get();
     }
 
-    // registrar una nueva bodega
+    // registrar una nueva producto
     public function regBodega($datos){
         $idAdmin = Auth::id();
-        $datos['IdBodega']==null ? $Id=0 : $Id= $datos['IdBodega'];
-        $sql="select f_registro_bodega(".$Id.",'".$datos['NombreBodega']."','".$datos['DescripcionBodega']."',".$datos['IdLocal'].",".$datos['EstadoBodega'].",".$idAdmin.")";
+        $datos['IdProducto']==null ? $Id=0 : $Id= $datos['IdProducto'];
+        $sql="select f_registro_producto(".$Id.",'".$datos['CodigoBarra']."','".$datos['CodigoProveedor']."','".$datos['NombreProducto']."','".$datos['DescripcionProducto']."',".$datos['IdUltimoProveedor'].",".$datos['IdFamilia'].",".$datos['IdSubFamilia'].",".$datos['IdUnidadMedida'].",".$datos['SeCompra'].",".$datos['SeVende'].",".$datos['EsProductoCombo'].",".$datos['Descontinuado'].",".$datos['StockMinimo'].",".$datos['StockMaximo'].",".$datos['StockRecomendado'].",'".$datos['PrecioUltimaCompra']."','".$datos['PrecioVentaSugerido']."',".$datos['IdBodega'].",".$datos['EstadoProducto'].",".$idAdmin.")";
         $execute=DB::select($sql);
         foreach ($execute[0] as $key => $value) {
-            $result['f_registro_bodega']=$value;
+            $result['f_registro_producto']=$value;
         }
         return $result;
     }
 
-    // Activar / Desactivar bodega
-    public function activarBodega($datos){
+    // Activar / Desactivar producto
+    public function activarProducto($datos){
         $idAdmin = Auth::id();
         if ($datos['EstadoProducto']>0){
             $values=array('EstadoProducto'=>0,'auFechaModificacion'=>date("Y-m-d H:i:s"),'auUsuarioModificacion'=>$idAdmin);
         }else{
             $values=array('EstadoProducto'=>1,'auFechaModificacion'=>date("Y-m-d H:i:s"),'auUsuarioModificacion'=>$idAdmin);
+        }
+        return DB::table('productos')
+                ->where('IdProducto', $datos['IdProducto'])
+                ->update($values);
+    }
+
+    public function descontinuarProducto($datos){
+        $idAdmin = Auth::id();
+        if ($datos['Descontinuado']>1){
+            $values=array('Descontinuado'=>1,'auFechaModificacion'=>date("Y-m-d H:i:s"),'auUsuarioModificacion'=>$idAdmin);
+        }else{
+            $values=array('Descontinuado'=>2,'auFechaModificacion'=>date("Y-m-d H:i:s"),'auUsuarioModificacion'=>$idAdmin);
         }
         return DB::table('productos')
                 ->where('IdProducto', $datos['IdProducto'])
