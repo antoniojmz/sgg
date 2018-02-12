@@ -77,19 +77,19 @@ class Producto extends Authenticatable
     // Activar / Desactivar bodega
     public function activarBodega($datos){
         $idAdmin = Auth::id();
-        if ($datos['EstadoBodega']>0){
-            $values=array('EstadoBodega'=>0,'auFechaModificacion'=>date("Y-m-d H:i:s"),'auUsuarioModificacion'=>$idAdmin);
+        if ($datos['EstadoProducto']>0){
+            $values=array('EstadoProducto'=>0,'auFechaModificacion'=>date("Y-m-d H:i:s"),'auUsuarioModificacion'=>$idAdmin);
         }else{
-            $values=array('EstadoBodega'=>1,'auFechaModificacion'=>date("Y-m-d H:i:s"),'auUsuarioModificacion'=>$idAdmin);
+            $values=array('EstadoProducto'=>1,'auFechaModificacion'=>date("Y-m-d H:i:s"),'auUsuarioModificacion'=>$idAdmin);
         }
-        return DB::table('bodegas')
-                ->where('IdBodega', $datos['IdBodega'])
+        return DB::table('productos')
+                ->where('IdProducto', $datos['IdProducto'])
                 ->update($values);
     }
 
-    public function localesProducto($IdBodega){    
-        return DB::table('v_productos')->where('IdBodega',$IdBodega)->get(); 
-    }
+    // public function localesProducto($IdBodega){    
+    //     return DB::table('v_productos')->where('IdBodega',$IdBodega)->get(); 
+    // }
 
     public function getOneDetalle($IdBodega){
         return DB::table('v_bodegas')->where('IdBodega',$IdBodega)->get(); 

@@ -58,7 +58,7 @@ class ProductoController extends Controller
         $datos = $request->all();
         $model= new Producto();
         $result['f_registro'] = $model->regBodega($datos);
-        $result['v_productos'] = $model->listBodega();
+        $result['v_productos'] = $model->listProductos();
         return $result;
     }
 
@@ -66,9 +66,9 @@ class ProductoController extends Controller
     protected function postProductoactivo (Request $request){
         $datos = $request->all();
         $model= new Producto();
-        $bodega = Producto::find($datos['IdBodega']);
+        $bodega = Producto::find($datos['IdProducto']);
         $result['activar'] = $model->activarBodega($bodega);
-        $result['v_productos'] = $model->listBodega();
+        $result['v_productos'] = $model->listProductos();
         return $result;
     }
 
@@ -76,8 +76,8 @@ class ProductoController extends Controller
     protected function postProductodetalle (Request $request){
         $datos = $request->all();
         $model= new Producto();
-        $result['v_detalles'] = $model->getOneDetalle($datos['IdBodega']);
-        $result['v_productos'] = $model->localesProducto($datos['IdBodega']);
+        $result['v_detalles'] = $model->getOneDetalle($datos['IdProducto']);
+        $result['v_productos'] = $model->localesProducto($datos['IdProducto']);
         return $result;
     }
 

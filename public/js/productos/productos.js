@@ -23,9 +23,9 @@ var ManejoRespuestaProcesarD = function(respuesta){
 var ManejoRespuestaProcesarI = function(respuesta){
     if(respuesta.code==200){
         if(respuesta.respuesta.activar>0){
-            if(respuesta.respuesta.v_bodegas.length>0){
+            if(respuesta.respuesta.v_productos.length>0){
                 $.growl({message:"Procesado"},{type: "success", allow_dismiss: true,});
-                cargarTablaProductos(respuesta.respuesta.v_bodegas);
+                cargarTablaProductos(respuesta.respuesta.v_productos);
             }
         }else{
             $.growl({message:"Debe seleccionar un registro"},{type: "warning", allow_dismiss: true,});
