@@ -60,6 +60,7 @@ class Bodega extends Authenticatable
         foreach ($execute[0] as $key => $value) {
             $result['f_registro_bodega']=$value;
         }
+		//Comentarios
         return $result;
     }
 
@@ -71,6 +72,10 @@ class Bodega extends Authenticatable
         }else{
             $values=array('EstadoBodega'=>1,'auFechaModificacion'=>date("Y-m-d H:i:s"),'auUsuarioModificacion'=>$idAdmin);
         }
+		
+		//Comentarios
+		
+		
         return DB::table('bodegas')
                 ->where('IdBodega', $datos['IdBodega'])
                 ->update($values);
